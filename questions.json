@@ -1,0 +1,1037 @@
+[
+  {
+    "id": "2026-Q01",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "Quelle est la définition du principe d’universalité budgétaire ?",
+    "choix": [
+      "Chaque recette est affectée à une dépense",
+      "L’autorisation budgétaire donnée à l’exécutif pour collecter les recettes publiques et mettre en œuvre les dépenses n’est valable que pour un an",
+      "Le budget décrit, pour la durée de l’exercice, l’ensemble des recettes qui financent l’ensemble des dépenses",
+      "Le budget doit être accompagné de l’ensemble des pièces comptables justificatives"
+    ],
+    "bonne_reponse": 3,
+    "explication": "L'article 6 de la LOLF prévoit que le budget décrit, pour une année, l'ensemble des recettes et des dépenses budgétaires de l'État, et que l'ensemble des recettes assure l'exécution de l'ensemble des dépenses : c'est le principe d'universalité. Le choix 1 décrit l'affectation d'une recette à une dépense, que ce principe écarte ; le choix 2 décrit le principe d'annualité.",
+    "source": {
+      "libelle": "Art. 6 de la loi organique n° 2001-692 du 1er août 2001 relative aux lois de finances (LOLF)",
+      "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006321024"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q02",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "Selon l’article 24 de la Constitution, quel est l’un des rôles du Sénat ?",
+    "choix": [
+      "Représenter la France auprès des collectivités territoriales étrangères",
+      "Représenter la position du gouvernement",
+      "Représenter les collectivités territoriales de la République",
+      "Représenter les seules collectivités territoriales métropolitaines"
+    ],
+    "bonne_reponse": 3,
+    "explication": "L'article 24 de la Constitution dispose, à propos du Sénat : « Il assure la représentation des collectivités territoriales de la République. »",
+    "source": {
+      "libelle": "Art. 24 de la Constitution du 4 octobre 1958",
+      "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000019241014/"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q03",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "À quelle obligation renvoie l’affirmation suivante : « un agent public doit garder confidentielles les informations personnelles relatives aux usagers dont il a eu connaissance dans l’exercice de ses fonctions. »",
+    "choix": [
+      "L’impartialité",
+      "La neutralité",
+      "L’obéissance hiérarchique",
+      "Le secret professionnel"
+    ],
+    "bonne_reponse": 4,
+    "explication": "L'article L. 121-6 du code général de la fonction publique soumet l'agent public au secret professionnel, dans le respect des articles 226-13 et 226-14 du code pénal. C'est cette obligation qui protège les informations personnelles des usagers.",
+    "source": {
+      "libelle": "Art. L. 121-6 du code général de la fonction publique",
+      "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044427903/2022-03-01"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q04",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "Le Pacte de stabilité et de croissance adopté par l’Union européenne en 1997 prévoit que le déficit public des États membres, dont la France, doit être plafonné à une certaine part du PIB. Quelle est cette part ?",
+    "choix": [
+      "1%",
+      "3%",
+      "5%",
+      "10 %"
+    ],
+    "bonne_reponse": 2,
+    "explication": "La valeur de référence est de 3 % pour le rapport entre le déficit public et le produit intérieur brut (et de 60 % pour la dette publique). Ces valeurs sont fixées par le protocole n° 12 annexé aux traités ; le Pacte de stabilité et de croissance en organise le respect.",
+    "source": {
+      "libelle": "Art. 1er du protocole (n° 12) sur la procédure concernant les déficits excessifs, annexé au TUE et au TFUE (art. 126 TFUE)",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:12016E/PRO/12"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q05",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "Qu’est-ce que la fongibilité asymétrique définie par la loi organique relative aux lois de finances (LOLF) ?",
+    "choix": [
+      "En cas d’insuffisance de crédits pour rémunérer les agents publics, des crédits inutilisés d’autres programmes peuvent être transférés sur les dépenses de personnel",
+      "La fongibilité asymétrique est interdite depuis l’adoption de la loi organique relative aux lois de finances (LOLF)",
+      "Les crédits de personnel peuvent être utilisés pour d’autres natures de dépenses",
+      "Les crédits votés sur un programme peuvent être utilisés sur tout autre programme en cas d’insuffisance de crédit justifiée auprès du Parlement"
+    ],
+    "bonne_reponse": 3,
+    "explication": "Selon l'article 7 de la LOLF, la répartition des crédits par titre est indicative, mais les crédits ouverts sur le titre des dépenses de personnel de chaque programme constituent un plafond. Les crédits de personnel peuvent donc servir à d'autres natures de dépenses, alors que l'inverse est interdit : la fongibilité est dite asymétrique.",
+    "source": {
+      "libelle": "Art. 7 (II) de la loi organique n° 2001-692 du 1er août 2001 relative aux lois de finances (LOLF)",
+      "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006321025"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q06",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "Quels sont les quatre principes fondamentaux de la République française ?",
+    "choix": [
+      "Démocratie, liberté, laïcité, fraternité",
+      "Indivisibilité, laïcité, démocratie, social",
+      "Indivisibilité, laïcité, liberté, tolérance",
+      "Liberté, égalité, fraternité, laïcité"
+    ],
+    "bonne_reponse": 2,
+    "explication": "L'article 1er de la Constitution dispose : « La France est une République indivisible, laïque, démocratique et sociale. » Le choix 4 reprend la devise de la République (art. 2) en y ajoutant la laïcité.",
+    "source": {
+      "libelle": "Art. 1er de la Constitution du 4 octobre 1958",
+      "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000571356/"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q07",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "Le budget de l’État est structuré en trois niveaux. À quoi correspondent les missions ?",
+    "choix": [
+      "À la destination des crédits",
+      "Au budget accordé à chaque ministère",
+      "Au cadre de mise en œuvre des dépenses d’investissement de l’État",
+      "Aux grandes politiques de l’État"
+    ],
+    "bonne_reponse": 4,
+    "explication": "L'article 7 de la LOLF définit la mission comme un ensemble de programmes concourant à une politique publique définie. Elle peut relever de plusieurs ministères : ce n'est donc pas le budget d'un ministère.",
+    "source": {
+      "libelle": "Art. 7 (I) de la loi organique n° 2001-692 du 1er août 2001 relative aux lois de finances (LOLF)",
+      "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006321025"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q08",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "Quelle est la durée du mandat d’un maire ?",
+    "choix": [
+      "4 ans",
+      "5 ans",
+      "6 ans",
+      "7 ans"
+    ],
+    "bonne_reponse": 3,
+    "explication": "Le maire est élu pour la même durée que le conseil municipal (art. L. 2122-10 du CGCT) et les conseillers municipaux sont élus pour six ans (art. L. 227 du code électoral).",
+    "source": {
+      "libelle": "Art. L. 2122-10 du code général des collectivités territoriales et art. L. 227 du code électoral",
+      "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006353530"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q09",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "La libre administration des collectivités territoriales est :",
+    "choix": [
+      "Un principe constitutionnel",
+      "Un principe jurisprudentiel",
+      "Un principe législatif",
+      "Un principe réglementaire"
+    ],
+    "bonne_reponse": 1,
+    "explication": "L'article 72 de la Constitution prévoit que, dans les conditions prévues par la loi, les collectivités territoriales s'administrent librement par des conseils élus. Le principe a donc valeur constitutionnelle.",
+    "source": {
+      "libelle": "Art. 72, alinéa 3, de la Constitution du 4 octobre 1958",
+      "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006527579"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q10",
+    "origine": "officiel_2026",
+    "theme": "environnement",
+    "enonce": "À l’été 2023, la dette publique de la France a dépassé les 3 000 milliards d’euros. À quoi correspond cette dette ?",
+    "choix": [
+      "Il s’agit de l’ensemble des emprunts publics contractés par les collectivités territoriales",
+      "Il s’agit de l’ensemble des emprunts publics contractés par l’État",
+      "Il s’agit de l’ensemble des emprunts publics contractés par l’État, la Sécurité sociale, les organismes divers d'administration centrale (ODAC) et les collectivités territoriales",
+      "Il s’agit du solde annuel négatif du budget des administrations publiques"
+    ],
+    "bonne_reponse": 3,
+    "explication": "La dette publique (au sens du traité de Maastricht) est l'ensemble des emprunts non encore remboursés des administrations publiques : État, organismes divers d'administration centrale (ODAC), administrations publiques locales et administrations de sécurité sociale. Le choix 4 décrit le déficit, non la dette.",
+    "source": {
+      "libelle": "Art. 2 du protocole (n° 12) sur la procédure concernant les déficits excessifs ; ministère de l’Économie, « 5 minutes pour comprendre la dette publique »",
+      "url": "https://www.economie.gouv.fr/decryptage-5-minutes-pour-comprendre-la-dette-publique"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q11",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Sur quelles libertés repose le marché unique européen ?",
+    "choix": [
+      "Liberté d’expression, liberté de religion, liberté de vivre à l’abri du besoin et de la peur",
+      "Liberté d’opinion, liberté d’expression, liberté de réunion, liberté de culte, liberté syndicale",
+      "Liberté, égalité, fraternité",
+      "Libre circulation des biens, des personnes, des services et des capitaux"
+    ],
+    "bonne_reponse": 4,
+    "explication": "L'article 26 du TFUE définit le marché intérieur comme un espace sans frontières intérieures dans lequel la libre circulation des marchandises, des personnes, des services et des capitaux est assurée.",
+    "source": {
+      "libelle": "Art. 26, paragraphe 2, du traité sur le fonctionnement de l’Union européenne (TFUE)",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=LEGISSUM:internal_market"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q12",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Quel est le rôle du Parlement européen dans l'adoption du budget à long terme (ou cadre financier pluriannuel) de l’Union européenne ?",
+    "choix": [
+      "Le Parlement doit approuver le budget",
+      "Le Parlement fait la première proposition sur le montant du budget",
+      "Le Parlement n’a qu’un rôle consultatif",
+      "Le Parlement n’a pas de rôle budgétaire"
+    ],
+    "bonne_reponse": 1,
+    "explication": "Le règlement fixant le cadre financier pluriannuel est adopté par le Conseil à l'unanimité, après approbation du Parlement européen, qui se prononce à la majorité des membres qui le composent. Le Parlement doit donc approuver le texte ; la proposition initiale vient de la Commission.",
+    "source": {
+      "libelle": "Art. 312, paragraphe 2, du traité sur le fonctionnement de l’Union européenne (TFUE)",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:12016E312"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q13",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Quel État membre est le plus grand contributeur au budget de l’Union européenne ?",
+    "choix": [
+      "L’Allemagne",
+      "L’Espagne",
+      "La France",
+      "L’Italie"
+    ],
+    "bonne_reponse": 1,
+    "explication": "La Représentation de la Commission européenne en France indique que la France est le deuxième contributeur au budget de l'Union européenne, derrière l'Allemagne. Réponse fondée sur une publication officielle et non sur un texte normatif.",
+    "source": {
+      "libelle": "Représentation de la Commission européenne en France, « Le budget de l’UE en France »",
+      "url": "https://france.representation.ec.europa.eu/strategie-et-priorites/le-budget-de-lue-en-france_fr"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q14",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Parmi les critères ci-dessous, lequel est une condition d’adhésion à l’Union européenne ?",
+    "choix": [
+      "Adhérer à la zone euro",
+      "Avoir une dette publique inférieure à 60 % du PIB",
+      "Être une République",
+      "Respecter certains droits fondamentaux tels que la démocratie ou encore la protection des minorités"
+    ],
+    "bonne_reponse": 4,
+    "explication": "L'article 49 du TUE réserve la demande d'adhésion aux États européens qui respectent les valeurs de l'article 2 (dont la démocratie et les droits des personnes appartenant à des minorités). Les critères de Copenhague exigent des institutions stables garantissant la démocratie, l'état de droit, les droits de l'homme, le respect des minorités et leur protection. L'adoption de l'euro, un plafond de dette et la forme républicaine ne sont pas des conditions d'adhésion.",
+    "source": {
+      "libelle": "Art. 49 et art. 2 du traité sur l’Union européenne (TUE) ; critères de Copenhague (Conseil européen de juin 1993)",
+      "url": "https://eur-lex.europa.eu/FR/legal-content/glossary/accession-criteria-copenhagen-criteria.html"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q15",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "En quelle année a été signé le Traité de Lisbonne ?",
+    "choix": [
+      "1957",
+      "1992",
+      "2001",
+      "2007"
+    ],
+    "bonne_reponse": 4,
+    "explication": "Le traité de Lisbonne a été signé le 13 décembre 2007 et est entré en vigueur le 1er décembre 2009. 1957 correspond aux traités de Rome, 1992 au traité de Maastricht, 2001 au traité de Nice.",
+    "source": {
+      "libelle": "Traité de Lisbonne, signé à Lisbonne le 13 décembre 2007 (JO C 306 du 17.12.2007)",
+      "url": "https://eur-lex.europa.eu/legal-content/fr/TXT/?uri=CELEX:12007L/TXT"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q16",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Quelle est la portée des règlements de l'Union européenne ?",
+    "choix": [
+      "Ils nécessitent une transposition en droit national",
+      "Ils s'appliquent uniquement aux États membres qui les acceptent",
+      "Ils sont directement applicables dans tous les États membres",
+      "Ils sont uniquement des recommandations"
+    ],
+    "bonne_reponse": 3,
+    "explication": "L'article 288 du TFUE dispose : « Le règlement a une portée générale. Il est obligatoire dans tous ses éléments et il est directement applicable dans tout État membre. » La transposition en droit national concerne les directives.",
+    "source": {
+      "libelle": "Art. 288, alinéa 2, du traité sur le fonctionnement de l’Union européenne (TFUE)",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/ALL/?uri=celex:12012E288"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q17",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Quelle mesure fiscale de l’Organisation de coopération et de développement économique (OCDE) est entrée en vigueur dans l’Union européenne en 2024 afin de lutter contre l’évasion fiscale ?",
+    "choix": [
+      "La mise en place d’un impôt minimum de 15 % sur les multinationales",
+      "La suppression des paradis fiscaux en Europe",
+      "La taxe numérique européenne",
+      "Le renforcement de la TVA intracommunautaire"
+    ],
+    "bonne_reponse": 1,
+    "explication": "La directive (UE) 2022/2523 met en œuvre dans l'Union le « pilier 2 » de l'accord conclu sous l'égide de l'OCDE : un taux minimum d'imposition de 15 % pour les grands groupes. Elle s'applique aux exercices ouverts à compter du 31 décembre 2023, donc en pratique à partir de 2024.",
+    "source": {
+      "libelle": "Directive (UE) 2022/2523 du Conseil du 14 décembre 2022 visant à assurer un niveau minimum d’imposition mondial pour les groupes d’entreprises multinationales et les groupes nationaux de grande envergure dans l’Union",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32022L2523"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q18",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Quel État membre préside le Conseil de l’Union européenne depuis le 1er juillet 2025 ?",
+    "choix": [
+      "Allemagne",
+      "Belgique",
+      "Danemark",
+      "Pologne"
+    ],
+    "bonne_reponse": 3,
+    "explication": "Le Danemark a assuré la présidence tournante du Conseil de l'Union européenne du 1er juillet au 31 décembre 2025. Il a succédé à la Pologne (premier semestre 2025) et a précédé Chypre.",
+    "source": {
+      "libelle": "Site officiel de la présidence danoise du Conseil de l’Union européenne (juillet – décembre 2025)",
+      "url": "https://danish-presidency.consilium.europa.eu/fr/"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q19",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Quelle institution veille à la bonne application de la législation de l’Union européenne par tous les États membres ?",
+    "choix": [
+      "La Commission européenne",
+      "Le Conseil de l’Europe",
+      "La Cour de justice de l’Union européenne",
+      "La Cour européenne des droits de l’homme"
+    ],
+    "bonne_reponse": 1,
+    "explication": "Selon l'article 17 du TUE, la Commission veille à l'application des traités et des mesures adoptées par les institutions, et surveille l'application du droit de l'Union sous le contrôle de la Cour de justice de l'Union européenne. Le Conseil de l'Europe et la Cour européenne des droits de l'homme ne sont pas des institutions de l'Union.",
+    "source": {
+      "libelle": "Art. 17, paragraphe 1, du traité sur l’Union européenne (TUE)",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=LEGISSUM:community_law_application"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q20",
+    "origine": "officiel_2026",
+    "theme": "ue",
+    "enonce": "Qui a été élu(e) Président(e) du Parlement européen en janvier 2022 et réélu(e) en juillet 2024 ?",
+    "choix": [
+      "Nicole FONTAINE",
+      "Roberta METSOLA",
+      "David SASSOLI",
+      "Martin SCHULZ"
+    ],
+    "bonne_reponse": 2,
+    "explication": "Roberta Metsola a été élue Présidente du Parlement européen le 18 janvier 2022, après le décès de David Sassoli, puis réélue le 16 juillet 2024. Réponse fondée sur une publication officielle du Parlement européen.",
+    "source": {
+      "libelle": "Parlement européen, communiqué de presse du 16 juillet 2024, « Roberta Metsola est réélue Présidente du Parlement européen »",
+      "url": "https://www.europarl.europa.eu/news/fr/press-room/20240710IPR22805/roberta-metsola-est-reelue-presidente-du-parlement-europeen"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q21",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Quel est le rôle principal d'un pare-feu informatique ?",
+    "choix": [
+      "Bloquer les publicités intrusives",
+      "Filtrer et sécuriser les connexions réseau",
+      "Optimiser la vitesse de connexion Internet",
+      "Supprimer automatiquement les virus"
+    ],
+    "bonne_reponse": 2,
+    "explication": "Selon le CyberDico de l'ANSSI, un pare-feu est un outil qui protège un ordinateur connecté à un réseau ou à l'internet en filtrant les connexions entrantes et, souvent, les connexions sortantes illégitimes. Réponse fondée sur une publication officielle et non sur un texte normatif.",
+    "source": {
+      "libelle": "ANSSI, CyberDico, entrée « Pare-feu »",
+      "url": "https://cyber.gouv.fr/cyberdico/"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q22",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Parmi les affirmations suivantes sur l’open data (données en source ouverte), trouvez l’intrus.",
+    "choix": [
+      "L’open data offre la possibilité d’accéder à des statistiques médicales",
+      "L’open data permet d’utiliser des données protégées par des droits d’auteurs",
+      "L’open data permet de consulter des données librement accessibles aux usagers",
+      "L’open data peut être d’origine publique ou privée"
+    ],
+    "bonne_reponse": 2,
+    "explication": "Les données ouvertes sont des données en accès libre et gratuit, réutilisables par tous, produites par des administrations mais aussi par des acteurs privés (choix 3 et 4 exacts). En revanche, les informations sur lesquelles des tiers détiennent des droits de propriété intellectuelle ne sont pas des informations publiques librement réutilisables (art. L. 321-2 du CRPA) : l'open data ne permet pas d'utiliser des données protégées par des droits d'auteur. L'intrus est le choix 2.",
+    "source": {
+      "libelle": "Art. L. 321-2 du code des relations entre le public et l’administration ; data.gouv.fr, « Lexique de l’open data »",
+      "url": "https://guides.data.gouv.fr/guides/autres-ressources-utiles/lexique-de-lopen-data"
+    },
+    "confiance": "moyenne",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q23",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Qu’est-ce que l’illectronisme ?",
+    "choix": [
+      "La difficulté voire l’incapacité à utiliser les appareils numériques et informatiques en raison d’une absence de couverture réseau",
+      "La difficulté voire l’incapacité à utiliser les appareils numériques et informatiques en raison d’un manque ou d’une absence de connaissance de leur fonctionnement",
+      "La facilité à utiliser les appareils numériques et informatiques en raison d’une très bonne connaissance de leur fonctionnement",
+      "Les conséquences d’une surexposition aux écrans depuis l’enfance"
+    ],
+    "bonne_reponse": 2,
+    "explication": "Le site du Gouvernement définit l'illectronisme comme la difficulté, voire l'incapacité, à utiliser les appareils numériques et les outils informatiques en raison d'un manque ou d'une absence totale de connaissances à propos de leur fonctionnement. Réponse fondée sur une publication officielle et non sur un texte normatif.",
+    "source": {
+      "libelle": "info.gouv.fr, « Comment agir contre l’illectronisme »",
+      "url": "https://www.info.gouv.fr/actualite/comment-agir-contre-l-illectronisme"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q24",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "D’où provient la majorité de l’empreinte carbone du numérique en France ?",
+    "choix": [
+      "De nos équipements (smartphones, ordinateurs, objets connectés)",
+      "Des centres de données (datacenters)",
+      "Des cryptoactifs (cryptomonnaies, NFT)",
+      "Des réseaux (fixes et mobiles)"
+    ],
+    "bonne_reponse": 1,
+    "explication": "Les terminaux (téléviseurs, ordinateurs, smartphones…) sont le premier poste de l'empreinte carbone du numérique en France : 79 % selon l'étude ADEME-Arcep de 2022, 50 % selon son actualisation par l'ADEME, devant les centres de données (46 %) et les réseaux (4 %). Confiance moyenne : la part des terminaux a fortement baissé dans la dernière estimation, qui les place à 50 % exactement.",
+    "source": {
+      "libelle": "Mission interministérielle numérique écoresponsable, « Actualisation des chiffres de l’impact du numérique en France » (étude ADEME, mise à jour de l’étude ADEME-Arcep)",
+      "url": "https://ecoresponsable.numerique.gouv.fr/actualites/actualisation-ademe-impact/"
+    },
+    "confiance": "moyenne",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q25",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Quel est le principal objectif de la loi « Informatique et Libertés » en France ?",
+    "choix": [
+      "Encadrer l’utilisation des données personnelles des individus",
+      "Faciliter les échanges de données personnelles des citoyens entre les sites Internet",
+      "Interdire les sites de commerce en ligne",
+      "Obliger les citoyens à s’inscrire sur une plateforme numérique nationale"
+    ],
+    "bonne_reponse": 1,
+    "explication": "La loi du 6 janvier 1978 encadre les traitements de données à caractère personnel. Son article 1er pose que l'informatique doit être au service de chaque citoyen et consacre le droit des personnes de décider et de contrôler les usages faits des données qui les concernent.",
+    "source": {
+      "libelle": "Art. 1er de la loi n° 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés",
+      "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000037822962"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q26",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Quelle est la différence entre les protocoles HTTP et HTTPS ?",
+    "choix": [
+      "Il n’y en a aucune",
+      "Le protocole HTTP est plus rapide",
+      "Le protocole HTTPS est plus rapide",
+      "Le protocole HTTPS est sécurisé"
+    ],
+    "bonne_reponse": 4,
+    "explication": "HTTPS est la version sécurisée de HTTP : il assure la sécurité des données échangées entre l'ordinateur de l'internaute et le site (chiffrement par le protocole TLS). Réponse fondée sur une publication officielle et non sur un texte normatif.",
+    "source": {
+      "libelle": "Cybermalveillance.gouv.fr, « Comment sécuriser son site Internet ? »",
+      "url": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques/securisation-sites-internet"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q27",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Qu’est-ce qu’un flux RSS ?",
+    "choix": [
+      "Une messagerie en ligne permettant d’échanger des données sensibles",
+      "Une revue informatique spécialisée",
+      "Un moyen de communication entre serveurs informatiques",
+      "Un système de diffusion et d’échange de contenus fréquemment mis à jour sur un site Internet"
+    ],
+    "bonne_reponse": 4,
+    "explication": "RSS est un format de « syndication de contenu Internet » : il permet de diffuser et d'échanger des informations (textes, liens, images) qui sont automatiquement mises à jour, et de suivre les nouveautés d'un site sans le visiter. Réponse fondée sur une publication officielle et non sur un texte normatif.",
+    "source": {
+      "libelle": "Ministère de l’Économie et des Finances, « Les flux RSS »",
+      "url": "https://www.economie.gouv.fr/rss"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q28",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Qu’est-ce que le droit à la déconnexion ?",
+    "choix": [
+      "Le droit pour tout salarié de ne pas être connecté à un outil numérique professionnel en dehors de ses horaires de travail",
+      "Le droit pour tout salarié de pouvoir se déconnecter de temps en temps sur son lieu de travail",
+      "Le droit pour tout salarié de pouvoir se déconnecter une heure par jour sur son lieu de travail",
+      "Le droit pour tout salarié de travailler sans connexion Internet"
+    ],
+    "bonne_reponse": 1,
+    "explication": "L'article L. 2242-17 (7°) du code du travail fait entrer dans la négociation obligatoire en entreprise les modalités du plein exercice par le salarié de son droit à la déconnexion, afin d'assurer le respect des temps de repos et de congé. Ce droit s'entend comme celui de ne pas être connecté à un outil numérique professionnel en dehors de son temps de travail.",
+    "source": {
+      "libelle": "Art. L. 2242-17, 7°, du code du travail",
+      "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043893940"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q29",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Qu’est-ce que la blockchain (« chaîne de blocs ») ?",
+    "choix": [
+      "Un environnement informatique dédié aux jeux en ligne",
+      "Une technologie de stockage et de transmission de l'information, décentralisée, permettant de valider et sécuriser n'importe quel échange de données",
+      "Un réseau centralisé de données utilisé par les États pour sécuriser les transactions monétaires effectuées en temps réel",
+      "Un système de protection informatique contre les cyberattaques au sein du réseau d’une entreprise ou d’un organisme public"
+    ],
+    "bonne_reponse": 2,
+    "explication": "Le ministère de l'Économie définit la chaîne de blocs comme une technologie de stockage et de transmission d'informations, prenant la forme d'une base de données partagée simultanément avec tous ses utilisateurs et qui ne dépend d'aucun organe central. Elle est donc décentralisée, à l'inverse du choix 3. Réponse fondée sur une publication officielle et non sur un texte normatif.",
+    "source": {
+      "libelle": "Ministère de l’Économie et des Finances, « Qu’est-ce que la chaîne de blocs (Blockchain) ? »",
+      "url": "https://www.economie.gouv.fr/entreprises/developper-son-entreprise/innover-et-numeriser-son-entreprise/quest-ce-que-la-chaine-de"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q30",
+    "origine": "officiel_2026",
+    "theme": "numerique",
+    "enonce": "Qu’est-ce que l’exploration de données (« Data mining ») ?",
+    "choix": [
+      "La modification de données afin de les rendre accessibles sur Internet",
+      "La recherche de données libre de droits",
+      "L’exploitation et l’analyse de grands ensembles de données",
+      "L’ouverture d’un dossier dans l’explorateur de fichiers d’un système d’exploitation"
+    ],
+    "bonne_reponse": 3,
+    "explication": "Le Journal officiel définit l'exploration de données (équivalent étranger : datamining) comme un processus de recherche dans un ensemble de données destiné à détecter des corrélations cachées ou des informations nouvelles. Parmi les choix, seul le choix 3 (exploitation et analyse de grands ensembles de données) y correspond.",
+    "source": {
+      "libelle": "Vocabulaire de l’informatique (liste de termes, expressions et définitions adoptés), Journal officiel, entrée « exploration de données »",
+      "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000785170"
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q31",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Quel est le mot manquant ?\nCailloux – Pierres – Roches - ???",
+    "choix": [
+      "Diamant",
+      "Granite",
+      "Paillage",
+      "Rubis"
+    ],
+    "bonne_reponse": 4,
+    "explication": "Deux règles vérifiables désignent le même mot. 1) Le nombre de lettres diminue d'une unité à chaque mot : CAILLOUX (8), PIERRES (7), ROCHES (6) ; le mot suivant compte 5 lettres. Seul RUBIS a 5 lettres (DIAMANT : 7, GRANITE : 7, PAILLAGE : 8). 2) Les trois mots de la série ont une forme de pluriel (-x, -s, -s) ; RUBIS est le seul choix terminé par -s. Confiance moyenne : la règle est déduite, elle n'est pas donnée par l'énoncé.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "moyenne",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q32",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Des copropriétaires décident d'acheter des plaques identiques pour personnaliser leurs boîtes aux lettres. Les plaques sont facturées selon chaque lettre du nom de famille. Si la famille MARC paye 36 €, la famille PUSSI paye 42 €, la famille MARCEL paye 58 €, la famille SUPINS paye 52 € et la famille MARCO paye 45 €, combien paiera la famille NOËL ?",
+    "choix": [
+      "38 €",
+      "40 €",
+      "41 €",
+      "46 €"
+    ],
+    "bonne_reponse": 3,
+    "explication": "Chaque lettre a un prix. MARCEL − MARC = E + L = 58 − 36 = 22 €. MARCO − MARC = O = 45 − 36 = 9 €. SUPINS contient les lettres de PUSSI (P, U, S, S, I) plus un N : N = 52 − 42 = 10 €. NOËL = N + O + (E + L) = 10 + 9 + 22 = 41 €, en comptant Ë comme E.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q33",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Quel est le nombre manquant ?",
+    "choix": [
+      "12",
+      "18",
+      "23",
+      "60"
+    ],
+    "bonne_reponse": 2,
+    "explication": "La figure est un patron de cube : quatre cases alignées (??, 28, 36, 14), plus une case au-dessus (84) et une au-dessous (42) de la troisième. Une fois le cube plié, les quatre cases alignées forment le tour du cube : la 1re et la 3e sont opposées (?? et 36), la 2e et la 4e aussi (28 et 14) ; les deux cases restantes forment le dessus et le dessous (84 et 42). Sur les deux paires connues, un nombre est le double de l'autre : 84 = 2 × 42 et 28 = 2 × 14. La face opposée à 36 porte donc 18 (36 = 2 × 18) ; l'autre valeur possible, 72, ne figure pas parmi les choix.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": "images/2026-Q33.png",
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q34",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Complétez la série suivante.\nA1 – C4 – E9 – G16 - ?",
+    "choix": [
+      "I21",
+      "I25",
+      "J20",
+      "J24"
+    ],
+    "bonne_reponse": 2,
+    "explication": "Les lettres avancent de deux rangs : A (1re), C (3e), E (5e), G (7e), donc I (9e lettre). Les nombres sont les carrés successifs : 1 = 1², 4 = 2², 9 = 3², 16 = 4², donc 5² = 25. Le terme suivant est I25.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q35",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Dans une boîte, il y a 5 boules rouges, 7 boules bleues, et 3 boules vertes. Si une boule est tirée au hasard, quelle est la probabilité qu'elle soit verte ?",
+    "choix": [
+      "14 %",
+      "20 %",
+      "25 %",
+      "30 %"
+    ],
+    "bonne_reponse": 2,
+    "explication": "La boîte contient 5 + 7 + 3 = 15 boules, dont 3 vertes. La probabilité de tirer une boule verte est 3/15 = 1/5 = 20 %.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q36",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Quels nombres remplacent logiquement X et Y ?",
+    "choix": [
+      "X = 8 et Y = 12",
+      "X = 11 et Y = 10",
+      "X = 11 et Y = 14",
+      "X = 15 et Y = 14"
+    ],
+    "bonne_reponse": 3,
+    "explication": "On compare chaque nombre de la première ligne à celui placé dessous : un nombre pair augmente de 2 (2 → 4, 14 → 16, 8 → 10), un nombre impair diminue de 2 (9 → 7, 7 → 5). Donc 13 (impair) → X = 11 et 12 (pair) → Y = 14. La règle est vérifiée par les cinq colonnes connues.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": "images/2026-Q36.png",
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q37",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Trouvez la figure qui fait suite aux trois premiers carrés.",
+    "choix": [
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Figure 4"
+    ],
+    "bonne_reponse": 3,
+    "explication": "Chaque carré est une grille de 4 × 4 cases dont 5 sont colorées ; on note (ligne, colonne) depuis le coin supérieur gauche. Carré 1 : (1,1), (1,4), (2,3), (3,2), (4,1). Carré 2 : (1,1), (1,2), (2,3), (3,2), (4,1) : la case (1,4) est venue en (1,2). Carré 3 : (1,1), (1,2), (1,3), (3,2), (4,1) : la case (2,3) est montée en (1,3). À chaque étape, une case de la diagonale rejoint la première ligne, qui se remplit de gauche à droite. Étape suivante : (3,2) va en (1,4), ce qui donne la première ligne entièrement colorée plus la case (4,1). C'est la figure 3 ; la figure 2 n'a que 4 cases colorées.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": "images/2026-Q37.png",
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q38",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Complétez la séquence de mots suivante.\nCANARD – BIBELOT – CHACAL – DEMANDER – ÉCUREUIL – SIFFLET – GAGNER – ?",
+    "choix": [
+      "FILLES",
+      "HACHOIR",
+      "INCENDIE",
+      "PÂQUES"
+    ],
+    "bonne_reponse": 2,
+    "explication": "Chaque mot contient deux fois une même lettre, et cette lettre suit l'ordre alphabétique : CANARD (A, A), BIBELOT (B, B), CHACAL (C, C), DEMANDER (D, D), ÉCUREUIL (E, E), SIFFLET (F, F), GAGNER (G, G). Le mot suivant doit contenir deux H : HACHOIR. Les autres choix ne contiennent aucun H.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q39",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Si aujourd’hui est lundi, quel jour sera-t-on dans 45 jours ?",
+    "choix": [
+      "Mercredi",
+      "Jeudi",
+      "Vendredi",
+      "Samedi"
+    ],
+    "bonne_reponse": 2,
+    "explication": "45 = 6 × 7 + 3. Après 42 jours (6 semaines entières), on est de nouveau un lundi ; 3 jours plus tard, on est jeudi.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q40",
+    "origine": "officiel_2026",
+    "theme": "logique",
+    "enonce": "Marie est la sœur de Jean. Jean est le frère de Paul. Paul est le fils de Louise. Louise est la mère de Marc. Quel est le lien de parenté de Marie avec Marc ?",
+    "choix": [
+      "Il s’agit de sa cousine",
+      "Il s’agit de sa mère",
+      "Il s’agit de sa sœur",
+      "Il s’agit de sa tante"
+    ],
+    "bonne_reponse": 3,
+    "explication": "Marie est la sœur de Jean et Jean est le frère de Paul : Marie, Jean et Paul sont frères et sœur. Paul est le fils de Louise, donc Louise est leur mère. Louise est aussi la mère de Marc : Marc appartient à la même fratrie. Marie est donc la sœur de Marc. Le raisonnement suppose, comme l'énoncé le sous-entend, que les frères et sœurs ont la même mère.",
+    "source": {
+      "libelle": "Raisonnement (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q41",
+    "origine": "officiel_2026",
+    "theme": "anglais",
+    "enonce": "What’s the English for : « Tu as soif ? Il y a de la limonade dans le cellier et du jus d’orange à la cave. Sers-toi. »",
+    "choix": [
+      "Are you thirsty ? There is some limonade in the cellar and some orange juice in the cave. Help yourself.",
+      "Are you thirsty ? There is some limonade in the storeroom and some orange juicce in the cellar. Help yourself.",
+      "Are you thirsty ? There is some limonade in the storeroom and some orrange juice in the cave. Help yourself.",
+      "Are you thirsty ? There is some limonade in the storeroom and some orange juice in the cellar. Help yourself."
+    ],
+    "bonne_reponse": 4,
+    "explication": "« Cellier » se traduit par « storeroom » et « cave » par « cellar ». Le mot anglais « cave » est un faux ami : il signifie « grotte », ce qui élimine les choix 1 et 3. Le choix 2 comporte une faute (« juicce »), le choix 3 aussi (« orrange »). Seul le choix 4 associe storeroom et cellar sans faute sur « orange juice ». Le mot « limonade » (au lieu de « lemonade ») figure tel quel dans les quatre choix du sujet.",
+    "source": {
+      "libelle": "Sens des mots et orthographe (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q42",
+    "origine": "officiel_2026",
+    "theme": "anglais",
+    "enonce": "Complete the following sentence : « I am starving. What are we having ………. lunch ? »",
+    "choix": [
+      "at",
+      "for",
+      "in",
+      "on"
+    ],
+    "bonne_reponse": 2,
+    "explication": "On dit « to have something for lunch / for dinner » : la préposition « for » introduit le repas pour lequel on mange quelque chose. « What are we having for lunch? » = « Qu'est-ce qu'on mange à midi ? »",
+    "source": {
+      "libelle": "Règle de grammaire (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q43",
+    "origine": "officiel_2026",
+    "theme": "anglais",
+    "enonce": "Find the synonym of the underscored word : « The solution to this question is obvious. »",
+    "choix": [
+      "Clear",
+      "Hard",
+      "Impossible",
+      "Weird"
+    ],
+    "bonne_reponse": 1,
+    "explication": "« Obvious » signifie « évident » ; son synonyme est « clear » (clair, évident). « Hard » = difficile, « impossible » = impossible, « weird » = étrange.",
+    "source": {
+      "libelle": "Sens des mots (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q44",
+    "origine": "officiel_2026",
+    "theme": "anglais",
+    "enonce": "Which sentence is correct ?",
+    "choix": [
+      "Paul drove when he stopped smoking",
+      "Paul drove when he stopped to smoke",
+      "Paul was driving when he stopped to smoke",
+      "Paul was driving when he stopped to smoking"
+    ],
+    "bonne_reponse": 3,
+    "explication": "Une action en cours dans le passé (prétérit continu : « was driving ») est interrompue par une action ponctuelle (prétérit simple : « stopped »). « Stop to + base verbale » signifie « s'arrêter pour faire quelque chose » : Paul conduisait quand il s'est arrêté pour fumer. Le choix 4 est fautif (« to smoking »). Confiance moyenne : les choix 1 et 2 ne sont pas grammaticalement impossibles, ils sont seulement moins naturels ; le choix 3 est la réponse la plus conforme à la règle.",
+    "source": {
+      "libelle": "Règle de grammaire (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "moyenne",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  },
+  {
+    "id": "2026-Q45",
+    "origine": "officiel_2026",
+    "theme": "anglais",
+    "enonce": "« One of the direct consequences of Brexit was the restoration of customs ». What « customs » does mean ?",
+    "choix": [
+      "Douanes",
+      "Frontières",
+      "Impôts",
+      "Passeports"
+    ],
+    "bonne_reponse": 1,
+    "explication": "Au pluriel, « customs » désigne la douane, les contrôles douaniers. Le Brexit a rétabli les formalités douanières entre le Royaume-Uni et l'Union européenne. Frontières = borders, impôts = taxes, passeports = passports.",
+    "source": {
+      "libelle": "Sens des mots (voir l’explication)",
+      "url": ""
+    },
+    "confiance": "haute",
+    "statut": "concordant",
+    "image": null,
+    "similaire_a": null,
+    "extrait_source": null
+  }
+]

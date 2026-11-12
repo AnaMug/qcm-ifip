@@ -1,0 +1,658 @@
+:root {
+  --encre: #1c2230;
+  --encre-douce: #5a6272;
+  --papier: #f3f1ea;
+  --surface: #ffffff;
+  --trait: #d9d5c8;
+  --accent: #1d3f8f;
+  --accent-fond: #e7ecf8;
+  --vert: #1f6b3a;
+  --vert-fond: #e3f2e7;
+  --rouge: #a3261f;
+  --rouge-fond: #f9e4e2;
+  --ambre: #8a5a00;
+  --ambre-fond: #fbefd2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--encre);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 2px solid var(--encre);
+  margin-bottom: 1.25rem;
+}
+
+.entete-titre {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin: 0 0 0.75rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+main > h2 {
+  margin-top: 2rem;
+}
+
+p {
+  margin: 0 0 0.75rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+.chapeau {
+  color: var(--encre-douce);
+  margin-bottom: 1.25rem;
+}
+
+.discret {
+  color: var(--encre-douce);
+  font-size: 0.9rem;
+}
+
+.note {
+  background: var(--ambre-fond);
+  color: var(--ambre);
+  border-left: 4px solid var(--ambre);
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* Cartes */
+
+.carte {
+  background: var(--surface);
+  border: 1px solid var(--trait);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.carte > :last-child {
+  margin-bottom: 0;
+}
+
+.carte-alerte {
+  border-color: var(--rouge);
+  background: var(--rouge-fond);
+}
+
+/* Boutons */
+
+.bouton {
+  font: inherit;
+  color: var(--encre);
+  background: var(--surface);
+  border: 1px solid var(--encre-douce);
+  border-radius: 6px;
+  padding: 0.65rem 1rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+
+.bouton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.bouton:focus-visible,
+.choix-bouton:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.bouton-principal {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.bouton-actif {
+  background: var(--accent-fond);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.bouton-lien {
+  border: none;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+  padding: 0.25rem 0.5rem;
+}
+
+.rangee {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.rangee-navigation > .bouton {
+  flex: 1;
+}
+
+.modes {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.modes .bouton {
+  text-align: left;
+  font-size: 1.1rem;
+  padding: 0.9rem 1rem;
+}
+
+.modes small {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+@media (min-width: 36rem) {
+  .modes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Fiche de l'épreuve */
+
+.fiche {
+  margin: 0 0 0.75rem;
+}
+
+.fiche dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--encre-douce);
+  margin-top: 0.6rem;
+}
+
+.fiche dd {
+  margin: 0;
+}
+
+/* Compteurs et tuiles */
+
+.compteurs,
+.tuiles,
+.stats,
+.a-revoir,
+.liste-cases,
+.choix {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.compteurs li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--trait);
+}
+
+.compteurs li:last-child {
+  border-bottom: none;
+}
+
+.compteurs strong,
+.tuile strong,
+.score,
+.chrono,
+.stats-taux {
+  font-variant-numeric: tabular-nums;
+}
+
+.tuiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.tuile {
+  border: 1px solid var(--trait);
+  border-radius: 6px;
+  padding: 0.6rem 0.25rem;
+  text-align: center;
+}
+
+.tuile strong {
+  display: block;
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+
+.tuile span {
+  font-size: 0.85rem;
+}
+
+.tuile-bonne {
+  background: var(--vert-fond);
+  border-color: var(--vert);
+  color: var(--vert);
+}
+
+.tuile-fausse {
+  background: var(--rouge-fond);
+  border-color: var(--rouge);
+  color: var(--rouge);
+}
+
+.score {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.score-max {
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: var(--encre-douce);
+}
+
+/* Badges */
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+
+.badge-officiel_2026 {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.badge-ia_sourcee {
+  color: var(--accent);
+  background: var(--accent-fond);
+}
+
+.badge-a_verifier {
+  color: var(--ambre);
+  background: var(--ambre-fond);
+}
+
+.badge-concordant {
+  color: var(--encre);
+  background: var(--papier);
+}
+
+.badge-verifie {
+  color: var(--vert);
+  background: var(--vert-fond);
+}
+
+.badge-theme {
+  color: var(--encre-douce);
+  background: var(--surface);
+}
+
+/* Question */
+
+.question {
+  background: var(--surface);
+  border: 1px solid var(--trait);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.question-tete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.question-numero {
+  font-size: 0.9rem;
+  color: var(--encre-douce);
+  font-variant-numeric: tabular-nums;
+}
+
+.enonce {
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+
+.illustration {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 0.75rem;
+}
+
+.image-manquante {
+  border: 1px dashed var(--encre-douce);
+  color: var(--encre-douce);
+  padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.choix li + li {
+  margin-top: 0.5rem;
+}
+
+.choix-bouton {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.6rem;
+  width: 100%;
+  min-height: 2.75rem;
+  text-align: left;
+  font: inherit;
+  color: var(--encre);
+  background: var(--surface);
+  border: 1px solid var(--encre-douce);
+  border-radius: 6px;
+  padding: 0.65rem 0.75rem;
+  cursor: pointer;
+}
+
+.choix-bouton:disabled {
+  cursor: default;
+  color: var(--encre);
+  opacity: 1;
+}
+
+.choix-numero {
+  font-weight: bold;
+  color: var(--encre-douce);
+}
+
+.choix-texte {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.choix-marque {
+  flex-basis: 100%;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.choix-bouton.choisi {
+  border-color: var(--accent);
+  border-width: 2px;
+  background: var(--accent-fond);
+}
+
+.choix-bouton.bon {
+  border-color: var(--vert);
+  border-width: 2px;
+  background: var(--vert-fond);
+}
+
+.choix-bouton.bon .choix-marque {
+  color: var(--vert);
+}
+
+.choix-bouton.faux {
+  border-color: var(--rouge);
+  border-width: 2px;
+  background: var(--rouge-fond);
+}
+
+.choix-bouton.faux .choix-marque {
+  color: var(--rouge);
+}
+
+/* Correction */
+
+.correction {
+  border-left: 4px solid var(--encre-douce);
+  background: var(--surface);
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.correction > :last-child {
+  margin-bottom: 0;
+}
+
+.correction-bonne {
+  border-left-color: var(--vert);
+}
+
+.correction-fausse {
+  border-left-color: var(--rouge);
+}
+
+.correction-neutre {
+  border-left-color: var(--ambre);
+}
+
+.verdict {
+  font-weight: bold;
+}
+
+.correction-bonne .verdict {
+  color: var(--vert);
+}
+
+.correction-fausse .verdict {
+  color: var(--rouge);
+}
+
+.correction-neutre .verdict {
+  color: var(--ambre);
+}
+
+.extrait {
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid var(--trait);
+  background: var(--papier);
+  font-size: 0.95rem;
+  white-space: pre-line;
+}
+
+.source,
+.signaler {
+  font-size: 0.9rem;
+}
+
+.bloc-correction {
+  margin-bottom: 1.5rem;
+}
+
+/* Examen */
+
+.barre-examen {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: var(--papier);
+  border-bottom: 1px solid var(--trait);
+  padding: 0.5rem 0;
+  margin-bottom: 0.75rem;
+}
+
+.chrono {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.chrono-urgent {
+  color: var(--rouge);
+}
+
+/* Formulaires */
+
+.champ {
+  display: block;
+  margin: 0.75rem 0;
+}
+
+.champ span {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.champ input {
+  font: inherit;
+  width: 100%;
+  max-width: 10rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--encre-douce);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--encre);
+}
+
+.bareme {
+  display: grid;
+  align-items: end;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.bareme .champ {
+  margin: 0;
+}
+
+.bareme .champ input {
+  max-width: none;
+}
+
+.case {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+
+.case input {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  accent-color: var(--accent);
+}
+
+.case .discret {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.liste-cases {
+  margin-bottom: 1rem;
+}
+
+.liste-cases li + li {
+  border-top: 1px solid var(--trait);
+}
+
+/* Statistiques */
+
+.stats li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--trait);
+}
+
+.stats-tete {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.stats-taux {
+  font-weight: bold;
+}
+
+.stats + .discret {
+  margin-top: 0.75rem;
+}
+
+.a-revoir {
+  margin-top: 1rem;
+}
+
+.a-revoir li {
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--trait);
+  overflow-wrap: anywhere;
+}
+
+.a-revoir p {
+  margin: 0.5rem 0;
+}
