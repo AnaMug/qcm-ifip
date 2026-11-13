@@ -13,10 +13,13 @@ export const LIBELLES_THEMES = {
 
 export const ORIGINES = ['officiel_2026', 'ia_sourcee'];
 export const ORIGINE_OFFICIELLE = 'officiel_2026';
+// Origine des questions produites par src/core/generators (jamais présentes dans questions.json).
+export const ORIGINE_GENERATEUR = 'generateur';
 
 export const LIBELLES_ORIGINES = {
   officiel_2026: 'Officielle 2026',
   ia_sourcee: 'Générée (sourcée)',
+  generateur: 'Générée (calculée)',
 };
 
 export const STATUTS = ['a_verifier', 'concordant', 'verifie'];
@@ -44,9 +47,14 @@ export const RESULTATS = {
 
 export const REGLAGES_PAR_DEFAUT = {
   verifieesSeulement: false,
+  inclureGenerees: true,
   dureeExamenMin: 80,
   bareme: { bonne: 1, fausse: -0.5, abstention: 0 },
 };
+
+// Nombre de questions générées ajoutées à une séance d'entraînement qui comprend le thème logique.
+export const NB_GENEREES_PAR_SEANCE = 10;
+export const THEME_DES_GENERATEURS = 'logique';
 
 export const MENTION_BAREME = "Le barème officiel n'est pas publié : score indicatif.";
 export const MENTION_REPONSE_NON_ETABLIE = 'Réponse non encore établie';

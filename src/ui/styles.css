@@ -335,6 +335,11 @@ a:focus-visible {
   background: var(--accent-fond);
 }
 
+.badge-generateur {
+  color: #4a2d7a;
+  background: #efe8fa;
+}
+
 .badge-a_verifier {
   color: var(--ambre);
   background: var(--ambre-fond);
@@ -655,4 +660,27 @@ a:focus-visible {
 
 .a-revoir p {
   margin: 0.5rem 0;
+}
+
+/* Aperçu des générateurs (#apercu) */
+
+.apercu-meta {
+  font-size: 0.85rem;
+  color: var(--encre-douce);
+  font-variant-numeric: tabular-nums;
+  margin: 1.25rem 0 0.35rem;
+}
+
+.apercu-ok {
+  color: var(--vert);
+  font-weight: 600;
+}
+
+.apercu-echec {
+  color: var(--rouge);
+  font-weight: 600;
+}
+
+.correction p {
+  white-space: pre-line;
 }

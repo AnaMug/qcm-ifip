@@ -5,6 +5,7 @@ import {
   THEMES,
   ORIGINES,
   ORIGINE_OFFICIELLE,
+  ORIGINE_GENERATEUR,
   STATUTS,
   STATUT_VERIFIE,
   CONFIANCES,
@@ -30,24 +31,40 @@ const estTexteNonVide = (v) => typeof v === 'string' && v.trim() !== '';
 
 /**
  * Vérifie qu'un objet respecte le schéma strict d'une question.
+ * Avec { generee: true }, on attend une question produite par un générateur :
+ * origine "generateur" et champ supplémentaire "generateur" { type, seed, niveau, version }.
  * @returns {string[]} la liste des anomalies (vide si la question est valide)
  */
-export function validerQuestion(q) {
+export function validerQuestion(q, { generee = false } = {}) {
+  const clesAttendues = generee ? [...CLES_ATTENDUES, 'generateur'] : CLES_ATTENDUES;
+  const originesAdmises = generee ? [ORIGINE_GENERATEUR] : ORIGINES;
   if (q === null || typeof q !== 'object' || Array.isArray(q)) {
     return ["la question n'est pas un objet"];
   }
   const erreurs = [];
 
-  for (const cle of CLES_ATTENDUES) {
+  for (const cle of clesAttendues) {
     if (!(cle in q)) erreurs.push(`champ manquant : ${cle}`);
   }
   for (const cle of Object.keys(q)) {
-    if (!CLES_ATTENDUES.includes(cle)) erreurs.push(`champ inconnu : ${cle}`);
+    if (!clesAttendues.includes(cle)) erreurs.push(`champ inconnu : ${cle}`);
   }
 
   if ('id' in q && !estTexteNonVide(q.id)) erreurs.push('id : texte non vide attendu');
-  if ('origine' in q && !ORIGINES.includes(q.origine)) {
-    erreurs.push(`origine : valeurs admises ${ORIGINES.join(', ')}`);
+  if ('origine' in q && !originesAdmises.includes(q.origine)) {
+    erreurs.push(`origine : valeurs admises ${originesAdmises.join(', ')}`);
+  }
+  if (generee && 'generateur' in q) {
+    const g = q.generateur;
+    const ok =
+      g !== null &&
+      typeof g === 'object' &&
+      estTexteNonVide(g.type) &&
+      Number.isInteger(g.seed) &&
+      Number.isInteger(g.niveau) &&
+      Number.isInteger(g.version) &&
+      Object.keys(g).length === 4;
+    if (!ok) erreurs.push('generateur : objet { type, seed, niveau, version } attendu');
   }
   if ('theme' in q && !THEMES.includes(q.theme)) {
     erreurs.push(`theme : valeurs admises ${THEMES.join(', ')}`);

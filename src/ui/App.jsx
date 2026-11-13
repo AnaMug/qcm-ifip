@@ -17,6 +17,7 @@ import Examen from './Examen.jsx';
 import Resultat from './Resultat.jsx';
 import Statistiques from './Statistiques.jsx';
 import Reglages from './Reglages.jsx';
+import Apercu from './Apercu.jsx';
 
 // Validation unique au chargement : les questions non conformes au schéma sont écartées.
 const { questions: toutesLesQuestions, erreurs: erreursDeSchema } = preparerQuestions(donneesQuestions);
@@ -26,6 +27,14 @@ export default function App() {
   const [reglages, setReglages] = useState(REGLAGES_PAR_DEFAUT);
   const [progression, setProgression] = useState(progressionVide);
   const [ecran, setEcran] = useState({ nom: 'accueil' });
+
+  // Page de relecture des générateurs : accessible par #apercu, sans lien depuis l'accueil.
+  const [ancre, setAncre] = useState(() => window.location.hash);
+  useEffect(() => {
+    const suivre = () => setAncre(window.location.hash);
+    window.addEventListener('hashchange', suivre);
+    return () => window.removeEventListener('hashchange', suivre);
+  }, []);
 
   useEffect(() => {
     let actif = true;
@@ -76,7 +85,9 @@ export default function App() {
   };
 
   let contenu;
-  if (!pret) {
+  if (ancre === '#apercu') {
+    contenu = <Apercu />;
+  } else if (!pret) {
     contenu = <p className="discret">Chargement…</p>;
   } else if (ecran.nom === 'entrainement') {
     contenu = (
@@ -84,6 +95,8 @@ export default function App() {
         key={ecran.cle}
         questions={questionsVisibles}
         idsImposes={ecran.ids ?? null}
+        reglages={reglages}
+        onReglages={modifierReglages}
         onConsigner={consigner}
         onTerminer={finEntrainement}
       />
@@ -136,10 +149,16 @@ export default function App() {
     <div className="page">
       <header className="entete">
         <span className="entete-titre">QCM Inspecteur des finances publiques</span>
-        {ecran.nom !== 'accueil' && (
+        {ancre === '#apercu' ? (
+          <a className="bouton bouton-lien" href="#">
+            Accueil
+          </a>
+        ) : (
+          ecran.nom !== 'accueil' && (
           <button type="button" className="bouton bouton-lien" onClick={() => allerA('accueil')}>
             Accueil
-          </button>
+            </button>
+          )
         )}
       </header>
       <main>{contenu}</main>

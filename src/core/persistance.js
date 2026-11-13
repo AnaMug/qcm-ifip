@@ -33,6 +33,7 @@ export function normaliserReglages(brut) {
   const r = brut && typeof brut === 'object' ? brut : {};
   return {
     verifieesSeulement: r.verifieesSeulement === true,
+    inclureGenerees: r.inclureGenerees !== false,
     dureeExamenMin: normaliserDureeMinutes(r.dureeExamenMin, REGLAGES_PAR_DEFAUT.dureeExamenMin),
     bareme: normaliserBareme(r.bareme),
   };

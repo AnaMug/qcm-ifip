@@ -28,6 +28,8 @@ export default function Statistiques({ questions, progression, onRevoir }) {
                 {s.vues} / {s.nbQuestions} question{s.nbQuestions > 1 ? 's' : ''} vue{s.vues > 1 ? 's' : ''} ·{' '}
                 {s.bonnes} bonne{s.bonnes > 1 ? 's' : ''} · {s.fausses} fausse{s.fausses > 1 ? 's' : ''} ·{' '}
                 {s.abstentions} abstention{s.abstentions > 1 ? 's' : ''}
+                {s.reponsesGenerees > 0 &&
+                  ` · dont ${s.reponsesGenerees} réponse${s.reponsesGenerees > 1 ? 's' : ''} à des questions générées`}
               </div>
             </li>
           ))}

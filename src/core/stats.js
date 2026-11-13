@@ -9,8 +9,16 @@ const COMPTEURS = {
   [RESULTATS.ABSTENTION]: 'abstentions',
 };
 
+const compteursVides = () => ({ bonnes: 0, fausses: 0, abstentions: 0 });
+const entier = (n) => (Number.isInteger(n) && n >= 0 ? n : 0);
+
+/**
+ * parQuestion : une fiche par question du fichier questions.json.
+ * generees : un simple cumul par thème pour les questions générées, qui sont en nombre illimité
+ * et ne sont donc pas suivies une à une.
+ */
 export function progressionVide() {
-  return { version: 1, parQuestion: {} };
+  return { version: 1, parQuestion: {}, generees: {} };
 }
 
 /** Rend exploitable une progression relue depuis le stockage (éventuellement abîmée). */
@@ -21,7 +29,6 @@ export function normaliserProgression(brut) {
   const parQuestion = {};
   for (const [id, f] of Object.entries(brut.parQuestion)) {
     if (!f || typeof f !== 'object') continue;
-    const entier = (n) => (Number.isInteger(n) && n >= 0 ? n : 0);
     parQuestion[id] = {
       bonnes: entier(f.bonnes),
       fausses: entier(f.fausses),
@@ -30,20 +37,40 @@ export function normaliserProgression(brut) {
       date: typeof f.date === 'string' ? f.date : null,
     };
   }
-  return { version: 1, parQuestion };
+  const generees = {};
+  if (brut.generees && typeof brut.generees === 'object') {
+    for (const theme of THEMES) {
+      const c = brut.generees[theme];
+      if (!c || typeof c !== 'object') continue;
+      generees[theme] = {
+        bonnes: entier(c.bonnes),
+        fausses: entier(c.fausses),
+        abstentions: entier(c.abstentions),
+      };
+    }
+  }
+  return { version: 1, parQuestion, generees };
 }
 
 /**
  * Ajoute des résultats à la progression (sans la modifier : renvoie une nouvelle progression).
  * Les questions dont la réponse n'est pas établie ne sont pas comptabilisées.
- * @param {{ id: string, resultat: string }[]} resultats
+ * Une question générée (generee: true) alimente seulement le cumul de son thème.
+ * @param {{ id: string, resultat: string, theme?: string, generee?: boolean }[]} resultats
  * @param {string} dateIso
  */
 export function enregistrerResultats(progression, resultats, dateIso) {
   const parQuestion = { ...progression.parQuestion };
-  for (const { id, resultat } of resultats) {
+  const generees = { ...(progression.generees ?? {}) };
+  for (const { id, resultat, theme, generee } of resultats) {
     const compteur = COMPTEURS[resultat];
     if (!compteur) continue;
+    if (generee) {
+      if (!THEMES.includes(theme)) continue;
+      const cumul = generees[theme] ?? compteursVides();
+      generees[theme] = { ...cumul, [compteur]: cumul[compteur] + 1 };
+      continue;
+    }
     const fiche = parQuestion[id] ?? { bonnes: 0, fausses: 0, abstentions: 0, dernier: null, date: null };
     parQuestion[id] = {
       ...fiche,
@@ -52,12 +79,14 @@ export function enregistrerResultats(progression, resultats, dateIso) {
       date: dateIso,
     };
   }
-  return { ...progression, parQuestion };
+  return { ...progression, parQuestion, generees };
 }
 
 /**
  * Statistiques par thème, dans l'ordre de THEMES.
  * `taux` vaut null tant qu'aucune réponse n'a été donnée dans le thème.
+ * Les réponses aux questions générées sont incluses dans bonnes / fausses / abstentions ;
+ * `reponsesGenerees` indique combien de réponses elles représentent.
  */
 export function statsParTheme(questions, progression) {
   return THEMES.map((theme) => {
@@ -74,6 +103,11 @@ export function statsParTheme(questions, progression) {
       fausses += f.fausses;
       abstentions += f.abstentions;
     }
+    const cumul = progression.generees?.[theme] ?? compteursVides();
+    const reponsesGenerees = cumul.bonnes + cumul.fausses + cumul.abstentions;
+    bonnes += cumul.bonnes;
+    fausses += cumul.fausses;
+    abstentions += cumul.abstentions;
     const reponses = bonnes + fausses + abstentions;
     return {
       theme,
@@ -83,6 +117,7 @@ export function statsParTheme(questions, progression) {
       fausses,
       abstentions,
       reponses,
+      reponsesGenerees,
       taux: reponses > 0 ? bonnes / reponses : null,
     };
   });

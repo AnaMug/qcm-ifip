@@ -2,6 +2,7 @@
 // JavaScript pur : aucun import de React, aucun accès au DOM.
 
 import { evaluerReponse } from './score.js';
+import { ORIGINE_GENERATEUR } from './constants.js';
 
 /** @returns {{ questions: object[], reponses: Record<string, any>, index: number }} */
 export function creerSession(questions) {
@@ -49,7 +50,17 @@ export function questionsRepondues(session) {
   return session.questions.filter((q) => session.reponses[q.id] !== undefined);
 }
 
-/** Résultats à consigner dans la progression : [{ id, resultat }]. */
+/** Résultat d'une question, prêt à être consigné dans la progression. */
+export function resultatDeQuestion(question, reponse) {
+  return {
+    id: question.id,
+    resultat: evaluerReponse(question, reponse),
+    theme: question.theme,
+    generee: question.origine === ORIGINE_GENERATEUR,
+  };
+}
+
+/** Résultats à consigner dans la progression : [{ id, resultat, theme, generee }]. */
 export function resultatsDeSession(questions, reponses) {
-  return questions.map((q) => ({ id: q.id, resultat: evaluerReponse(q, reponses[q.id]) }));
+  return questions.map((q) => resultatDeQuestion(q, reponses[q.id]));
 }

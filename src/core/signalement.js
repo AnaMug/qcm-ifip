@@ -9,6 +9,15 @@ export function urlSignalement(urlDepot, question) {
     `Thème : ${question.theme}`,
     `Origine : ${question.origine}`,
     `Statut : ${question.statut}`,
+    ...(question.generateur
+      ? [
+          `Générateur : ${question.generateur.type}`,
+          `Graine : ${question.generateur.seed}`,
+          `Niveau : ${question.generateur.niveau}`,
+          `Version du générateur : ${question.generateur.version}`,
+          `Pour reproduire : generate(${question.generateur.seed}, ${question.generateur.niveau}) du générateur ${question.generateur.type}`,
+        ]
+      : []),
     '',
     "Description de l'erreur :",
     '',

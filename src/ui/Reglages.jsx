@@ -26,6 +26,18 @@ export default function Reglages({ reglages, onReglages }) {
           />
           <span>N'afficher que les questions vérifiées</span>
         </label>
+        <label className="case">
+          <input
+            type="checkbox"
+            checked={reglages.inclureGenerees}
+            onChange={(e) => onReglages({ inclureGenerees: e.target.checked })}
+          />
+          <span>Inclure des questions générées (entraînement, thème Logique)</span>
+        </label>
+        <p className="discret">
+          Les questions générées sont calculées par l'application et ne sont pas « vérifiées » : le premier
+          réglage les écarte. L'examen blanc ne contient que les questions officielles.
+        </p>
       </section>
 
       <section className="carte">

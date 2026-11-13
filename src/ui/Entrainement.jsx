@@ -1,7 +1,12 @@
 import { useState } from 'react';
-import { THEMES, LIBELLES_THEMES } from '../core/constants.js';
+import {
+  THEMES,
+  LIBELLES_THEMES,
+  NB_GENEREES_PAR_SEANCE,
+  THEME_DES_GENERATEURS,
+} from '../core/constants.js';
 import { compterParTheme, filtrerQuestions, selectionEntrainement } from '../core/questions.js';
-import { evaluerReponse } from '../core/score.js';
+import { composerEntrainement, generationActive } from '../core/entrainement.js';
 import {
   creerSession,
   questionCourante,
@@ -9,11 +14,19 @@ import {
   estDerniere,
   repondre,
   suivante,
+  resultatDeQuestion,
 } from '../core/session.js';
 import QuestionCarte from './QuestionCarte.jsx';
 import Correction from './Correction.jsx';
 
-export default function Entrainement({ questions, idsImposes, onConsigner, onTerminer }) {
+export default function Entrainement({
+  questions,
+  idsImposes,
+  reglages,
+  onReglages,
+  onConsigner,
+  onTerminer,
+}) {
   const [themes, setThemes] = useState(THEMES);
   const [session, setSession] = useState(() =>
     idsImposes ? creerSession(selectionEntrainement(questions, { ids: idsImposes })) : null,
@@ -22,7 +35,14 @@ export default function Entrainement({ questions, idsImposes, onConsigner, onTer
   // Étape 1 : choix des thèmes
   if (session === null) {
     const parTheme = compterParTheme(questions);
-    const nbSelection = filtrerQuestions(questions, { themes }).length;
+    const nbFichier = filtrerQuestions(questions, { themes }).length;
+    const avecGenerees = generationActive({ themes, ...reglages });
+    const nbSelection = nbFichier + (avecGenerees ? NB_GENEREES_PAR_SEANCE : 0);
+    const commencer = () => {
+      // La graine vient de l'heure courante : chaque séance reçoit de nouvelles questions générées.
+      const graine = Date.now() % 2147483647;
+      setSession(creerSession(composerEntrainement(questions, { themes, ...reglages, graine })));
+    };
     const basculer = (theme) =>
       setThemes((actuels) =>
         actuels.includes(theme) ? actuels.filter((t) => t !== theme) : [...actuels, theme],
@@ -46,11 +66,28 @@ export default function Entrainement({ questions, idsImposes, onConsigner, onTer
               </li>
             ))}
           </ul>
+          <label className="case">
+            <input
+              type="checkbox"
+              checked={reglages.inclureGenerees}
+              onChange={(e) => onReglages({ inclureGenerees: e.target.checked })}
+            />
+            <span>Inclure des questions générées (thème {LIBELLES_THEMES[THEME_DES_GENERATEURS]})</span>
+          </label>
+          <p className="discret">
+            {avecGenerees
+              ? `${NB_GENEREES_PAR_SEANCE} questions de logique calculées par l’application s’ajoutent à la séance ; elles changent à chaque séance.`
+              : reglages.inclureGenerees && reglages.verifieesSeulement
+                ? 'Aucune question générée : le réglage « N’afficher que les questions vérifiées » les écarte.'
+                : reglages.inclureGenerees
+                  ? `Les questions générées s’ajoutent quand le thème ${LIBELLES_THEMES[THEME_DES_GENERATEURS]} est coché.`
+                  : 'Seules les questions du sujet sont proposées.'}
+          </p>
           <button
             type="button"
             className="bouton bouton-principal"
             disabled={nbSelection === 0}
-            onClick={() => setSession(creerSession(selectionEntrainement(questions, { themes })))}
+            onClick={commencer}
           >
             Commencer ({nbSelection} question{nbSelection > 1 ? 's' : ''})
           </button>
@@ -77,7 +114,7 @@ export default function Entrainement({ questions, idsImposes, onConsigner, onTer
   const choisir = (numero) => {
     if (aRepondu) return;
     setSession(repondre(session, numero));
-    onConsigner([{ id: question.id, resultat: evaluerReponse(question, numero) }]);
+    onConsigner([resultatDeQuestion(question, numero)]);
   };
 
   const continuer = () => {
