@@ -1,8 +1,10 @@
 import { IMAGE_A_FOURNIR } from '../core/constants.js';
 import Badges from './Badges.jsx';
+import Figure from './Figure.jsx';
 
 /**
- * Affiche une question et ses 4 choix.
+ * Affiche une question et ses 4 choix. Un choix est un texte ou, pour une question à figure,
+ * une description dessinée par Figure.jsx.
  * - `onChoisir` absent ou `corrige` vrai : les choix ne sont plus cliquables.
  * - `corrige` vrai : la bonne réponse (si elle est établie) et l'erreur éventuelle sont marquées.
  */
@@ -29,7 +31,13 @@ export default function QuestionCarte({ question, etiquette, reponse, onChoisir,
         />
       )}
 
-      <ol className="choix">
+      {question.figure && (
+        <div className="figure-enonce">
+          <Figure figure={question.figure} className={`figure figure-${question.figure.kind}`} />
+        </div>
+      )}
+
+      <ol className={`choix${question.figure ? ' choix-figures' : ''}`}>
         {question.choix.map((texte, i) => {
           const numero = i + 1;
           const choisi = reponse === numero;
@@ -50,7 +58,13 @@ export default function QuestionCarte({ question, etiquette, reponse, onChoisir,
                 onClick={() => onChoisir(numero)}
               >
                 <span className="choix-numero">{numero}</span>
-                <span className="choix-texte">{texte}</span>
+                {typeof texte === 'string' ? (
+                  <span className="choix-texte">{texte}</span>
+                ) : (
+                  <span className="choix-dessin">
+                    <Figure figure={texte} className="figure figure-choix" />
+                  </span>
+                )}
                 {corrige && (estBonne || choisi) && (
                   <span className="choix-marque">
                     {estBonne && '✓ Bonne réponse'}

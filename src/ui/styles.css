@@ -684,3 +684,51 @@ a:focus-visible {
 .correction p {
   white-space: pre-line;
 }
+
+/* Questions à figures */
+
+.figure {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.figure-enonce {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1rem;
+}
+
+.figure-matrice {
+  width: 16rem;
+}
+
+.figure-suite {
+  width: 100%;
+}
+
+.choix-figures {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.choix-figures li + li {
+  margin-top: 0;
+}
+
+.choix-dessin {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.figure-choix {
+  width: 5.25rem;
+}
+
+@media (min-width: 36rem) {
+  .choix-figures {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

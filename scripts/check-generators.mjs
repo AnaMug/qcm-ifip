@@ -3,6 +3,7 @@
 // graines différentes et appelle verify(). Le script sort avec le code 1 au moindre échec.
 
 import { GENERATEURS, NIVEAUX } from '../src/core/generators/index.js';
+import { PERIODE_SYMETRIE } from '../src/core/figures/formes.js';
 
 const PAR_NIVEAU = 1000;
 let echecsTotal = 0;
@@ -11,7 +12,7 @@ const exemples = [];
 
 for (const generateur of Object.values(GENERATEURS)) {
   for (const niveau of NIVEAUX) {
-    const bilan = { echecs: 0, exceptions: 0, grainesRemplacees: 0, nonReproductibles: 0, faussesNonDetectees: 0 };
+    const bilan = { echecs: 0, exceptions: 0, grainesRemplacees: 0, nonReproductibles: 0, faussesNonDetectees: 0, doublonsNonDetectes: 0 };
     const enonces = new Set();
     const positions = [0, 0, 0, 0];
 
@@ -41,11 +42,22 @@ for (const generateur of Object.values(GENERATEURS)) {
       const faussee = { ...question, bonne_reponse: (question.bonne_reponse % 4) + 1 };
       if (generateur.verify(faussee).ok) bilan.faussesNonDetectees += 1;
 
-      enonces.add(question.enonce);
+      // 5. Grilles : un distracteur remplacé par la bonne case tournée d'un angle de symétrie
+      //    (visuellement identique à la bonne réponse) doit être refusé par verify()
+      if (question.figure?.kind === 'matrice') {
+        const bonne = question.choix[question.bonne_reponse - 1];
+        const jumelle = { ...bonne, rotation: bonne.rotation + (PERIODE_SYMETRIE[bonne.forme] || 45) };
+        const choix = question.choix.slice();
+        choix[question.bonne_reponse % 4] = jumelle;
+        if (generateur.verify({ ...question, choix }).ok) bilan.doublonsNonDetectes += 1;
+      }
+
+      enonces.add(question.enonce + JSON.stringify(question.figure ?? ''));
       positions[question.bonne_reponse - 1] += 1;
     }
 
-    const anomalies = bilan.echecs + bilan.exceptions + bilan.nonReproductibles + bilan.faussesNonDetectees;
+    const anomalies =
+      bilan.echecs + bilan.exceptions + bilan.nonReproductibles + bilan.faussesNonDetectees + bilan.doublonsNonDetectes;
     echecsTotal += anomalies;
     lignes.push({
       'générateur': generateur.type,
@@ -55,6 +67,7 @@ for (const generateur of Object.values(GENERATEURS)) {
       'erreurs generate': bilan.exceptions,
       'non reproductibles': bilan.nonReproductibles,
       'fausses non détectées': bilan.faussesNonDetectees,
+      'jumelles non détectées': generateur.type === 'matrice' ? bilan.doublonsNonDetectes : '—',
       'graines remplacées': bilan.grainesRemplacees,
       'énoncés distincts': enonces.size,
       'position bonne réponse (1-2-3-4)': positions.join('-'),

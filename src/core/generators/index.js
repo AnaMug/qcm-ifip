@@ -7,6 +7,8 @@ import suiteNumerique from './suite-numerique.js';
 import suiteLettresNombres from './suite-lettres-nombres.js';
 import calendrier from './calendrier.js';
 import probabilites from './probabilites.js';
+import matrice from './matrice.js';
+import suiteFigures from './suite-figures.js';
 
 export { NIVEAUX };
 
@@ -15,6 +17,8 @@ export const GENERATEURS = {
   [suiteLettresNombres.type]: suiteLettresNombres,
   [calendrier.type]: calendrier,
   [probabilites.type]: probabilites,
+  [matrice.type]: matrice,
+  [suiteFigures.type]: suiteFigures,
 };
 
 export const TYPES_DE_GENERATEURS = Object.keys(GENERATEURS);

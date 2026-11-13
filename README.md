@@ -130,6 +130,8 @@ d'un niveau, et **la bonne réponse est toujours calculée par le code**.
 | `suite_lettres_nombres` | séries du type « A1 – C4 – E9 – G16 – ? » | 1 à 3 |
 | `calendrier` | jour de la semaine dans N jours, ou il y a N jours | 1 à 3 |
 | `probabilites` | tirages dans une urne (une ou deux boules, avec ou sans remise), fractions irréductibles | 1 à 3 |
+| `matrice` | grille 3 × 3 dont une case manque ; 1, 2 ou 3 règles selon le niveau | 1 à 3 |
+| `suite_figures` | carré 2 × 2 ou 3 × 3 où un ou deux marqueurs se déplacent d'un pas constant | 1 à 3 |
 
 - **Reproductibilité.** `generate(seed, niveau)` renvoie toujours la même question pour la même
   graine. L'`id` vaut `gen-<type>-<seed>-<niveau>` et le champ `generateur` contient
@@ -154,6 +156,38 @@ d'un niveau, et **la bonne réponse est toujours calculée par le code**.
 - **Signalement.** « Signaler une erreur » inscrit dans l'issue le type, la graine, le niveau et la
   version du générateur, ce qui suffit à reproduire la question.
 
+### Questions à figures
+
+Une figure est une **donnée**, jamais une image : les générateurs `matrice` et `suite_figures`
+renvoient un champ `figure` qui décrit ce qu'il faut dessiner, et leurs 4 choix sont eux aussi des
+descriptions. Aucun générateur ne produit de SVG ni de HTML.
+
+```json
+{
+  "kind": "matrice", "lignes": 3, "colonnes": 3, "manquante": [2, 2],
+  "cases": [[{ "forme": "cercle", "nombre": 2, "remplissage": "plein", "rotation": 0, "marques": [] }, "…"], "…"]
+}
+```
+
+- **Case** : `forme` (`cercle`, `carre`, `triangle`, `losange`, `etoile`, `fleche`), `nombre`
+  (1 à 4), `remplissage` (`plein`, `vide`, `hachure`), `rotation` (degrés, sens horaire) et
+  `marques` (points placés sur le pourtour de la case : `n`, `ne`, `e`, `se`, `s`, `so`, `o`, `no`).
+  La case manquante vaut `null` dans `cases`.
+- **Suite de figures** : `{ "kind": "suite", "etapes": [grille, …] }`, où une grille vaut
+  `{ "kind": "grille", "taille": 2 ou 3, "marqueurs": [{ "forme", "remplissage", "ligne", "colonne" }] }`.
+- **Règles d'une grille 3 × 3** : progression du nombre d'éléments, rotation constante de 45° ou
+  90°, cycle de 3 formes, cycle des 3 remplissages, superposition des points du pourtour (réunion,
+  ou points présents dans une seule des deux premières cases). Une règle se lit par ligne ou par
+  colonne. Chaque distracteur ne diffère de la bonne case que par un attribut.
+- **Symétries.** Avant toute comparaison, la rotation est ramenée à sa valeur canonique selon la
+  forme : cercle, toute rotation ; carré, 90° ; triangle, 120° ; losange, 180° ; étoile, 72° ;
+  flèche, aucune. Deux choix visuellement identiques sont donc refusés.
+- **Dessin.** `src/core/figures/trace.js` (JavaScript pur) transforme une description en
+  primitives géométriques ; `src/ui/Figure.jsx` les dessine en SVG, sans librairie. Pour React
+  Native, seul `Figure.jsx` est à réécrire avec `react-native-svg`.
+- **Accessibilité.** Chaque figure reçoit un texte alternatif produit par
+  `src/core/figures/description.js`.
+
 ### Contrôler les générateurs
 
 ```bash
@@ -162,8 +196,9 @@ npm run check
 
 Le script `scripts/check-generators.mjs` (Node, sans dépendance) génère 1 000 questions par
 générateur et par niveau, appelle `verify` sur chacune et affiche le nombre d'échecs. Il vérifie
-aussi qu'une même graine redonne la même question et que `verify` refuse une question dont on a
-volontairement faussé la bonne réponse. Il sort avec le code 1 au moindre échec.
+aussi qu'une même graine redonne la même question, que `verify` refuse une question dont on a
+volontairement faussé la bonne réponse et, pour les grilles, qu'il refuse un choix qui serait la
+bonne case tournée d'un angle de symétrie. Il sort avec le code 1 au moindre échec.
 
 ### Relire des questions générées
 
@@ -214,9 +249,16 @@ src/
       familles-suites.js       familles de suites et leurs erreurs typiques
       solveur-suites.js        solveur indépendant utilisé par verify
       suite-numerique.js, suite-lettres-nombres.js, calendrier.js, probabilites.js
+      matrice.js, regles-matrice.js   grille 3 × 3 et contrôle indépendant de ses règles
+      suite-figures.js         suite de figures
       index.js                 registre des générateurs
+    figures/           modèle des figures (JavaScript pur)
+      formes.js                formes, remplissages, symétries, clés de comparaison
+      description.js           description en français (explications, texte alternatif)
+      trace.js                 calcul du tracé en primitives géométriques
   ui/                  composants React : affichage uniquement, appellent src/core
-                       (Apercu.jsx : page de relecture des générateurs, #apercu)
+                       (Apercu.jsx : page de relecture des générateurs, #apercu ;
+                        Figure.jsx : dessin SVG des figures)
   data/
     questions.json     source unique des questions
     epreuve.json       rappel du format de l'épreuve affiché à l'accueil

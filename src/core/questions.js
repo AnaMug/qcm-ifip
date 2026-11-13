@@ -36,7 +36,11 @@ const estTexteNonVide = (v) => typeof v === 'string' && v.trim() !== '';
  * @returns {string[]} la liste des anomalies (vide si la question est valide)
  */
 export function validerQuestion(q, { generee = false } = {}) {
-  const clesAttendues = generee ? [...CLES_ATTENDUES, 'generateur'] : CLES_ATTENDUES;
+  // Une question générée peut porter un champ facultatif « figure » (description structurée).
+  const avecFigure = generee && q.figure !== undefined;
+  const clesAttendues = generee
+    ? [...CLES_ATTENDUES, 'generateur', ...(avecFigure ? ['figure'] : [])]
+    : CLES_ATTENDUES;
   const originesAdmises = generee ? [ORIGINE_GENERATEUR] : ORIGINES;
   if (q === null || typeof q !== 'object' || Array.isArray(q)) {
     return ["la question n'est pas un objet"];
@@ -71,8 +75,21 @@ export function validerQuestion(q, { generee = false } = {}) {
   }
   if ('enonce' in q && !estTexteNonVide(q.enonce)) erreurs.push('enonce : texte non vide attendu');
   if ('choix' in q) {
-    const ok = Array.isArray(q.choix) && q.choix.length === 4 && q.choix.every(estTexteNonVide);
-    if (!ok) erreurs.push('choix : tableau de 4 textes non vides attendu');
+    // Question à figure : les 4 choix sont eux aussi des descriptions (objets).
+    const estChoix = avecFigure ? (c) => c !== null && typeof c === 'object' && !Array.isArray(c) : estTexteNonVide;
+    const ok = Array.isArray(q.choix) && q.choix.length === 4 && q.choix.every(estChoix);
+    if (!ok) {
+      erreurs.push(
+        avecFigure
+          ? 'choix : tableau de 4 descriptions de figure attendu'
+          : 'choix : tableau de 4 textes non vides attendu',
+      );
+    }
+  }
+  if (avecFigure) {
+    const f = q.figure;
+    const ok = f !== null && typeof f === 'object' && ['matrice', 'suite'].includes(f.kind);
+    if (!ok) erreurs.push('figure : description de type « matrice » ou « suite » attendue');
   }
   if ('bonne_reponse' in q && q.bonne_reponse !== null && ![1, 2, 3, 4].includes(q.bonne_reponse)) {
     erreurs.push('bonne_reponse : 1, 2, 3, 4 ou null attendu');

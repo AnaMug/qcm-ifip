@@ -56,14 +56,28 @@ export function assemblerQuestion({
     .map((c) => `« ${c} » (${retenus.find((p) => p.texte === c).erreur})`)
     .join(' ; ');
 
+  return enveloppe({
+    type,
+    version,
+    seed,
+    niveau,
+    enonce,
+    choix,
+    bonne_reponse: choix.indexOf(bonne) + 1,
+    explication: `${explication}\nErreurs typiques parmi les autres choix : ${erreurs}.`,
+  });
+}
+
+/** Champs communs à toutes les questions générées. */
+function enveloppe({ type, version, seed, niveau, enonce, choix, bonne_reponse, explication, figure }) {
   return {
     id: `gen-${type}-${seed}-${niveau}`,
     origine: ORIGINE_GENERATEUR,
     theme: 'logique',
     enonce,
     choix,
-    bonne_reponse: choix.indexOf(bonne) + 1,
-    explication: `${explication}\nErreurs typiques parmi les autres choix : ${erreurs}.`,
+    bonne_reponse,
+    explication,
     source: {
       libelle: `Réponse calculée par le générateur « ${type} » (version ${version}, graine ${seed}, niveau ${niveau})`,
       url: '',
@@ -73,8 +87,59 @@ export function assemblerQuestion({
     image: null,
     similaire_a: null,
     extrait_source: null,
+    ...(figure ? { figure } : {}),
     generateur: { type, seed, niveau, version },
   };
+}
+
+/**
+ * Assemble une question à figure : `figure` et les 4 choix sont des descriptions (données),
+ * jamais du SVG. `pieges` : [{ valeur, erreur }] dans l'ordre de préférence ; `cle(valeur)`
+ * donne la clé visuelle d'un choix, pour écarter deux choix identiques à l'œil.
+ * Les choix n'ont pas d'ordre naturel : leur place est tirée par la graine.
+ * Renvoie null s'il n'y a pas 3 distracteurs visuellement distincts.
+ */
+export function assemblerQuestionFigure({
+  type,
+  version,
+  seed,
+  niveau,
+  enonce,
+  figure,
+  bonne,
+  pieges,
+  cle,
+  explication,
+  alea,
+}) {
+  const dejaPris = new Set([cle(bonne)]);
+  const retenus = [];
+  for (const piege of pieges) {
+    if (retenus.length === 3) break;
+    const k = cle(piege.valeur);
+    if (dejaPris.has(k)) continue;
+    dejaPris.add(k);
+    retenus.push(piege);
+  }
+  if (retenus.length < 3) return null;
+
+  const ordre = alea.melanger([{ valeur: bonne, erreur: null }, ...retenus]);
+  const erreurs = ordre
+    .map((c, i) => (c.erreur === null ? null : `choix ${i + 1} (${c.erreur})`))
+    .filter((t) => t !== null)
+    .join(' ; ');
+
+  return enveloppe({
+    type,
+    version,
+    seed,
+    niveau,
+    enonce,
+    choix: ordre.map((c) => c.valeur),
+    bonne_reponse: ordre.findIndex((c) => c.erreur === null) + 1,
+    explication: `${explication}\nErreurs typiques parmi les autres choix : ${erreurs}.`,
+    figure,
+  });
 }
 
 /**
@@ -97,13 +162,13 @@ export function creerGenerateur({ type, version, libelle, construire, resoudre }
 
       const solution = resoudre(question);
       const cles = question.choix.map((c) => solution.cle(c));
-      if (new Set(question.choix).size !== 4 || new Set(cles).size !== 4) {
+      if (new Set(cles).size !== 4) {
         erreurs.push('les 4 choix ne sont pas tous différents');
       }
       if (solution.controle) {
         for (const c of question.choix) {
           const message = solution.controle(c);
-          if (message) erreurs.push(`choix « ${c} » : ${message}`);
+          if (message) erreurs.push(`choix ${question.choix.indexOf(c) + 1} : ${message}`);
         }
       }
       const corrects = question.choix
