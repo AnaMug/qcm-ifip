@@ -7,25 +7,6 @@ finances publiques (DGFiP, format rénové, première session 2026).
 - Aucun backend, aucun appel réseau, aucune IA : tout fonctionne dans le navigateur.
 - La progression et les réglages sont enregistrés sur l'appareil (localStorage).
 
-> **État du contenu.** `src/data/questions.json` contient les 45 questions du QCM officiel 2026,
-> recopiées du sujet publié par la DGFiP, qui ne comporte pas de corrigé. Les réponses proposées
-> sont donc toutes au statut `a_verifier` : elles doivent être contrôlées avant d'être passées
-> à `concordant` ou `verifie`. Les figures des questions 33, 36 et 37 sont dans `public/images/`.
-
-## À compléter avant la mise en ligne
-
-Ces informations n'ont pas été fournies ; elles sont laissées en attente et rien n'a été deviné.
-
-| Quoi | Où | Valeur actuelle |
-| --- | --- | --- |
-| Nom du dépôt GitHub | `vite.config.js`, ligne `base` | `'/NOM_DU_DEPOT/'` |
-| URL du dépôt (lien « Signaler une erreur ») | `src/config.js` | `https://github.com/UTILISATEUR/NOM_DU_DEPOT` |
-| Durée officielle de l'épreuve | `src/data/epreuve.json`, `duree_officielle_minutes` | `null` |
-
-Tant que ce dernier champ vaut `null`, l'accueil affiche « non renseigné dans
-l'application ». Le sujet 2026 indique 2 h 30 pour l'ensemble de l'épreuve (QCM et QRC), sans
-préciser la part du QCM. Ne le remplir qu'à partir d'une source officielle.
-
 ## Lancer en local
 
 Il faut Node.js 20.19 ou plus récent (22 recommandé).
@@ -43,19 +24,6 @@ Pour vérifier la version de production :
 npm run build
 npm run preview
 ```
-
-## Mettre en ligne (GitHub Pages)
-
-1. Créer le dépôt sur GitHub et y pousser ce projet sur la branche `main`.
-2. Remplacer `NOM_DU_DEPOT` dans `vite.config.js` par le nom exact du dépôt, par exemple
-   `base: '/qcm-ifip/'`. Sans cela, la page en ligne reste blanche.
-3. Remplacer l'URL dans `src/config.js` par l'adresse réelle du dépôt.
-4. Sur GitHub : **Settings → Pages → Build and deployment → Source : GitHub Actions**.
-5. Pousser sur `main`. Le workflow `.github/workflows/deploy.yml` construit le site et le publie
-   avec `actions/deploy-pages`. Il peut aussi être lancé à la main depuis l'onglet **Actions**.
-6. Le site est disponible à l'adresse `https://UTILISATEUR.github.io/NOM_DU_DEPOT/`.
-
-Le fichier `package-lock.json` doit rester dans le dépôt : le workflow utilise `npm ci`.
 
 ## Ajouter une question
 
@@ -80,43 +48,21 @@ qui respecte exactement ce schéma (tous les champs sont obligatoires, aucun aut
 }
 ```
 
-| Champ | Valeurs admises |
-| --- | --- |
-| `id` | texte unique, par exemple `2026-Q01` |
-| `origine` | `officiel_2026` ou `ia_sourcee` |
-| `theme` | `environnement`, `ue`, `numerique`, `logique`, `anglais` |
-| `enonce` | texte |
-| `choix` | exactement 4 textes |
-| `bonne_reponse` | `1`, `2`, `3`, `4` (numéro du choix) ou `null` |
-| `explication` | texte ou `null` |
-| `source` | `{ "libelle": "...", "url": "..." }` ; `url` peut être vide (`""`) |
-| `confiance` | `haute`, `moyenne`, `faible` ou `null` |
-| `statut` | `a_verifier`, `concordant`, `verifie` |
-| `image` | `null`, `"A_FOURNIR"` ou un chemin comme `"images/2026-Q07.png"` |
-| `similaire_a` | `null`, ou l'`id` de la question d'origine dont celle-ci est une variante |
-| `extrait_source` | `null`, ou la phrase exacte du texte source qui justifie la réponse |
-
-Règles à retenir :
-
-- **Ne jamais deviner.** Si la bonne réponse, l'explication ou le niveau de confiance ne sont pas
-  établis, mettre `null`. Avec `bonne_reponse: null`, la question s'affiche et la correction
-  indique « Réponse non encore établie » ; elle ne compte pas dans le score.
-- **Extrait de la source.** `extrait_source` est une citation exacte, copiée depuis le texte
-  source, jamais une reformulation. Il s'affiche dans la correction, au-dessus du lien vers la
-  source. En cas de doute sur la formulation exacte, laisser `null`.
-- **Questions similaires.** `similaire_a` doit désigner une question présente dans le fichier ;
-  sinon la question est écartée et signalée. Le champ est seulement enregistré pour l'instant :
-  la génération de questions similaires n'est pas faite dans cette version.
-- **Images.** Déposer le fichier dans `public/images/` et écrire le chemin sans barre oblique
-  initiale : `"images/2026-Q07.png"`. Tant que l'image manque, écrire `"A_FOURNIR"`.
-- **Examen blanc.** Il reprend toutes les questions dont `origine` vaut `officiel_2026`, dans
-  l'ordre des thèmes ci-dessus puis dans l'ordre du fichier. Leur nombre n'est écrit nulle part
-  dans le code.
-- **Contrôle automatique.** Au chargement, chaque question est comparée au schéma. Une question
-  non conforme (champ manquant, valeur inconnue, `id` en doublon…) est écartée et listée en bas
-  de la page d'accueil avec la raison.
-
-Après modification, relancer `npm run dev` pour vérifier, puis pousser sur `main`.
+| Champ            | Valeurs admises                                                           |
+| ---------------- | ------------------------------------------------------------------------- |
+| `id`             | texte unique, par exemple `2026-Q01`                                      |
+| `origine`        | `officiel_2026` ou `ia_sourcee`                                           |
+| `theme`          | `environnement`, `ue`, `numerique`, `logique`, `anglais`                  |
+| `enonce`         | texte                                                                     |
+| `choix`          | exactement 4 textes                                                       |
+| `bonne_reponse`  | `1`, `2`, `3`, `4` (numéro du choix) ou `null`                            |
+| `explication`    | texte ou `null`                                                           |
+| `source`         | `{ "libelle": "...", "url": "..." }` ; `url` peut être vide (`""`)        |
+| `confiance`      | `haute`, `moyenne`, `faible` ou `null`                                    |
+| `statut`         | `a_verifier`, `concordant`, `verifie`                                     |
+| `image`          | `null`, `"A_FOURNIR"` ou un chemin comme `"images/2026-Q07.png"`          |
+| `similaire_a`    | `null`, ou l'`id` de la question d'origine dont celle-ci est une variante |
+| `extrait_source` | `null`, ou la phrase exacte du texte source qui justifie la réponse       |
 
 ## Questions générées (logique)
 
@@ -124,14 +70,15 @@ En plus des questions du fichier, l'application calcule des questions de logique
 jamais écrites dans `questions.json` : chacune est reconstruite à partir d'un type, d'une graine et
 d'un niveau, et **la bonne réponse est toujours calculée par le code**.
 
-| Type | Contenu | Niveaux |
-| --- | --- | --- |
-| `suite_numerique` | suites arithmétiques, géométriques, entrelacées, à écarts croissants, carrés, cubes, « × a + b » | 1 à 3 |
-| `suite_lettres_nombres` | séries du type « A1 – C4 – E9 – G16 – ? » | 1 à 3 |
-| `calendrier` | jour de la semaine dans N jours, ou il y a N jours | 1 à 3 |
-| `probabilites` | tirages dans une urne (une ou deux boules, avec ou sans remise), fractions irréductibles | 1 à 3 |
-| `matrice` | grille 3 × 3 dont une case manque ; 1, 2 ou 3 règles selon le niveau | 1 à 3 |
-| `suite_figures` | carré 2 × 2 ou 3 × 3 où un ou deux marqueurs se déplacent d'un pas constant | 1 à 3 |
+| Type                    | Contenu                                                                                           | Niveaux |
+| ----------------------- | ------------------------------------------------------------------------------------------------- | ------- |
+| `suite_numerique`       | suites arithmétiques, géométriques, entrelacées, à écarts croissants, carrés, cubes, « × a + b »  | 1 à 3   |
+| `suite_lettres_nombres` | séries du type « A1 – C4 – E9 – G16 – ? »                                                         | 1 à 3   |
+| `calendrier`            | jour de la semaine dans N jours, ou il y a N jours                                                | 1 à 3   |
+| `probabilites`          | tirages dans une urne (une ou deux boules, avec ou sans remise), fractions irréductibles          | 1 à 3   |
+| `matrice`               | grille 3 × 3 dont une case manque ; 1, 2 ou 3 règles selon le niveau                              | 1 à 3   |
+| `suite_figures`         | carré 2 × 2 ou 3 × 3 où un ou deux marqueurs se déplacent d'un pas constant                       | 1 à 3   |
+| `patron_cube`           | patron de cube : face opposée (1), cube possible avec motifs sans orientation (2) ou orientés (3) | 1 à 3   |
 
 - **Reproductibilité.** `generate(seed, niveau)` renvoie toujours la même question pour la même
   graine. L'`id` vaut `gen-<type>-<seed>-<niveau>` et le champ `generateur` contient
@@ -164,8 +111,23 @@ descriptions. Aucun générateur ne produit de SVG ni de HTML.
 
 ```json
 {
-  "kind": "matrice", "lignes": 3, "colonnes": 3, "manquante": [2, 2],
-  "cases": [[{ "forme": "cercle", "nombre": 2, "remplissage": "plein", "rotation": 0, "marques": [] }, "…"], "…"]
+  "kind": "matrice",
+  "lignes": 3,
+  "colonnes": 3,
+  "manquante": [2, 2],
+  "cases": [
+    [
+      {
+        "forme": "cercle",
+        "nombre": 2,
+        "remplissage": "plein",
+        "rotation": 0,
+        "marques": []
+      },
+      "…"
+    ],
+    "…"
+  ]
 }
 ```
 
@@ -188,13 +150,38 @@ descriptions. Aucun générateur ne produit de SVG ni de HTML.
 - **Accessibilité.** Chaque figure reçoit un texte alternatif produit par
   `src/core/figures/description.js`.
 
+### Patrons de cube
+
+- **Modèle.** Les 11 patrons du cube sont codés comme 6 cases sur une grille
+  (`src/core/cube/patrons.js`) et présentés dans l'une de leurs 8 positions (rotations et
+  retournement).
+- **Pliage.** `src/core/cube/pliage.js` pose le cube sur une case et le fait rouler vers chaque
+  case voisine (parcours en largeur). Pour chaque case, il suit la position de la face (haut, bas,
+  avant, arrière, gauche, droite) et l'orientation de son motif (0, 90, 180 ou 270°).
+- **Vérification.** `verify` replie le patron par une autre méthode
+  (`pliage-geometrique.js` : rotation de points autour des arêtes), puis compare chaque choix aux
+  24 orientations du cube. Un seul choix doit correspondre. Les symétries des motifs sont prises
+  en compte : un disque tourné est identique, une flèche tournée de 180° est différente, une
+  lettre F en miroir ne correspond à aucune rotation.
+- **Description d'un patron** : `{ "kind": "patron", "cellules": [{ "ligne", "colonne", … }] }`,
+  chaque case portant soit une `etiquette` (lettre, niveau 1), soit un `motif` et sa `rotation`.
+- **Description d'un cube** (choix des niveaux 2 et 3) :
+  `{ "kind": "cube", "faces": { "haut": { "motif", "rotation", "miroir" }, "avant": …, "droite": … } }`.
+- **Dessin.** `src/core/cube/trace-cube.js` calcule le patron à plat et le cube en perspective
+  isométrique ; chaque point d'un motif est placé sur la face dans l'espace puis projeté, si bien
+  que le motif est déformé comme la face. `src/ui/CubeFigure.jsx` dessine le résultat en SVG.
+- **Vue de contrôle.** Sur la page `#apercu` uniquement, le bouton « Vue de contrôle » affiche le
+  cube plié en 3D CSS ; on le fait tourner à la souris ou au doigt pour le comparer aux choix.
+
 ### Contrôler les générateurs
 
 ```bash
 npm run check
 ```
 
-Le script `scripts/check-generators.mjs` (Node, sans dépendance) génère 1 000 questions par
+Le script `scripts/check-generators.mjs` (Node, sans dépendance) vérifie d'abord que chacun des
+11 patrons se plie en un cube valide (6 positions distinctes, 4 voisines et 1 opposée par face)
+et que les deux méthodes de pliage donnent les mêmes 24 vues. Il génère ensuite 1 000 questions par
 générateur et par niveau, appelle `verify` sur chacune et affiche le nombre d'échecs. Il vérifie
 aussi qu'une même graine redonne la même question, que `verify` refuse une question dont on a
 volontairement faussé la bonne réponse et, pour les grilles, qu'il refuse un choix qui serait la
@@ -205,12 +192,6 @@ bonne case tournée d'un angle de symétrie. Il sort avec le code 1 au moindre �
 Ajouter `#apercu` à l'adresse de l'application (par exemple
 `http://localhost:5173/NOM_DU_DEPOT/#apercu`). La page affiche 20 questions par type avec la
 réponse, l'explication et le résultat de `verify`. Elle n'est liée depuis aucun écran.
-
-### Modifier un générateur
-
-Toute modification qui change les questions produites pour une même graine doit s'accompagner d'une
-hausse de la constante `VERSION` du générateur : c'est elle qui permet de retrouver, à partir d'un
-signalement, le code qui a produit la question.
 
 ## Fonctionnement
 
@@ -251,28 +232,23 @@ src/
       suite-numerique.js, suite-lettres-nombres.js, calendrier.js, probabilites.js
       matrice.js, regles-matrice.js   grille 3 × 3 et contrôle indépendant de ses règles
       suite-figures.js         suite de figures
+      patron-cube.js           patrons de cube
       index.js                 registre des générateurs
     figures/           modèle des figures (JavaScript pur)
       formes.js                formes, remplissages, symétries, clés de comparaison
       description.js           description en français (explications, texte alternatif)
       trace.js                 calcul du tracé en primitives géométriques
+    cube/              patrons de cube (JavaScript pur)
+      reperes.js               faces, repères de lecture, outils vectoriels
+      patrons.js               les 11 patrons et leurs 8 présentations
+      pliage.js                pliage par roulement, 24 orientations, contrôle du cube
+      pliage-geometrique.js    second pliage, indépendant, utilisé par verify
+      motifs.js                motifs des faces, symétries, clés de comparaison
+      trace-cube.js            patron à plat et cube isométrique en primitives
   ui/                  composants React : affichage uniquement, appellent src/core
                        (Apercu.jsx : page de relecture des générateurs, #apercu ;
-                        Figure.jsx : dessin SVG des figures)
+                        Figure.jsx, CubeFigure.jsx, Primitive.jsx : dessin SVG des figures)
   data/
     questions.json     source unique des questions
     epreuve.json       rappel du format de l'épreuve affiché à l'accueil
 ```
-
-### Portage React Native
-
-`src/core/` ne dépend ni de React ni du navigateur et peut être repris tel quel. Seul
-`src/core/storage.js` est à remplacer : il expose `getItem`, `setItem` et `removeItem`, qui
-renvoient des `Promise`, comme `AsyncStorage`. Les composants de `src/ui/` sont à réécrire.
-
-## Prévu plus tard (non fait dans cette version)
-
-Version React Native, génération de questions similaires à une question du fichier, comptes utilisateurs, partie QRC, mode
-sombre, animations, PWA, tests. Rien dans le code actuel ne s'y oppose : la logique est isolée
-dans `src/core/`, le stockage passe par une interface asynchrone remplaçable, et le schéma des
-questions porte déjà les champs `similaire_a` et `extrait_source`.

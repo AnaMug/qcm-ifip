@@ -732,3 +732,57 @@ a:focus-visible {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* Patrons et cubes */
+
+.figure-patron {
+  width: auto;
+  max-height: 11rem;
+}
+
+.figure-choix-cube {
+  width: 6.25rem;
+}
+
+/* Vue de contrôle : cube plié en 3D CSS (page d'aperçu uniquement) */
+
+.cube-controle {
+  flex-basis: 100%;
+}
+
+.cube-scene {
+  width: 100%;
+  height: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 700px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  background: var(--papier);
+  border: 1px solid var(--trait);
+  border-radius: 6px;
+}
+
+.cube-3d {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  transform-style: preserve-3d;
+}
+
+.cube-face {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border: 2px solid var(--encre);
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
+
+.cube-face svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

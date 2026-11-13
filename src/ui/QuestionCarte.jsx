@@ -1,6 +1,10 @@
 import { IMAGE_A_FOURNIR } from '../core/constants.js';
 import Badges from './Badges.jsx';
 import Figure from './Figure.jsx';
+import CubeFigure from './CubeFigure.jsx';
+
+// Composant de dessin selon le type de description.
+const dessinPour = (figure) => (['patron', 'cube'].includes(figure.kind) ? CubeFigure : Figure);
 
 /**
  * Affiche une question et ses 4 choix. Un choix est un texte ou, pour une question à figure,
@@ -10,6 +14,8 @@ import Figure from './Figure.jsx';
  */
 export default function QuestionCarte({ question, etiquette, reponse, onChoisir, corrige = false }) {
   const verrouille = corrige || !onChoisir;
+  const DessinEnonce = question.figure ? dessinPour(question.figure) : null;
+  const choixDessines = typeof question.choix[0] !== 'string';
 
   return (
     <article className="question">
@@ -33,11 +39,11 @@ export default function QuestionCarte({ question, etiquette, reponse, onChoisir,
 
       {question.figure && (
         <div className="figure-enonce">
-          <Figure figure={question.figure} className={`figure figure-${question.figure.kind}`} />
+          <DessinEnonce figure={question.figure} className={`figure figure-${question.figure.kind}`} />
         </div>
       )}
 
-      <ol className={`choix${question.figure ? ' choix-figures' : ''}`}>
+      <ol className={`choix${choixDessines ? ' choix-figures' : ''}`}>
         {question.choix.map((texte, i) => {
           const numero = i + 1;
           const choisi = reponse === numero;
@@ -62,7 +68,10 @@ export default function QuestionCarte({ question, etiquette, reponse, onChoisir,
                   <span className="choix-texte">{texte}</span>
                 ) : (
                   <span className="choix-dessin">
-                    <Figure figure={texte} className="figure figure-choix" />
+                    {(() => {
+                      const Dessin = dessinPour(texte);
+                      return <Dessin figure={texte} className={`figure figure-choix figure-choix-${texte.kind ?? 'case'}`} />;
+                    })()}
                   </span>
                 )}
                 {corrige && (estBonne || choisi) && (

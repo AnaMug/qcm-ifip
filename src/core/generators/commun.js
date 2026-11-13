@@ -14,6 +14,7 @@ export const ESSAIS_MAX = 20;
  * Les choix sont présentés triés (comme dans le sujet officiel). Pour que la place de la bonne
  * réponse ne soit pas prévisible, la graine tire le nombre de pièges voulus AVANT la bonne réponse,
  * et on s'en approche autant que les pièges disponibles le permettent.
+ * - `figure` (facultatif) : description d'une figure qui accompagne l'énoncé ; les choix restent des textes.
  * Renvoie null s'il n'y a pas 3 distracteurs distincts : l'appelant essaiera la graine suivante.
  */
 export function assemblerQuestion({
@@ -28,6 +29,7 @@ export function assemblerQuestion({
   comparer,
   explication,
   alea,
+  figure,
 }) {
   const dejaPris = new Set([bonne]);
   const sansDoublon = (liste) =>
@@ -65,6 +67,7 @@ export function assemblerQuestion({
     choix,
     bonne_reponse: choix.indexOf(bonne) + 1,
     explication: `${explication}\nErreurs typiques parmi les autres choix : ${erreurs}.`,
+    figure,
   });
 }
 

@@ -9,6 +9,7 @@ import calendrier from './calendrier.js';
 import probabilites from './probabilites.js';
 import matrice from './matrice.js';
 import suiteFigures from './suite-figures.js';
+import patronCube from './patron-cube.js';
 
 export { NIVEAUX };
 
@@ -19,6 +20,7 @@ export const GENERATEURS = {
   [probabilites.type]: probabilites,
   [matrice.type]: matrice,
   [suiteFigures.type]: suiteFigures,
+  [patronCube.type]: patronCube,
 };
 
 export const TYPES_DE_GENERATEURS = Object.keys(GENERATEURS);

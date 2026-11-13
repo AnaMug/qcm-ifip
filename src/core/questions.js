@@ -75,21 +75,22 @@ export function validerQuestion(q, { generee = false } = {}) {
   }
   if ('enonce' in q && !estTexteNonVide(q.enonce)) erreurs.push('enonce : texte non vide attendu');
   if ('choix' in q) {
-    // Question à figure : les 4 choix sont eux aussi des descriptions (objets).
-    const estChoix = avecFigure ? (c) => c !== null && typeof c === 'object' && !Array.isArray(c) : estTexteNonVide;
-    const ok = Array.isArray(q.choix) && q.choix.length === 4 && q.choix.every(estChoix);
+    // Question à figure : les 4 choix sont soit 4 textes, soit 4 descriptions (objets).
+    const estDescription = (c) => c !== null && typeof c === 'object' && !Array.isArray(c);
+    const quatre = Array.isArray(q.choix) && q.choix.length === 4;
+    const ok = quatre && (q.choix.every(estTexteNonVide) || (avecFigure && q.choix.every(estDescription)));
     if (!ok) {
       erreurs.push(
         avecFigure
-          ? 'choix : tableau de 4 descriptions de figure attendu'
+          ? 'choix : 4 textes non vides ou 4 descriptions de figure attendus'
           : 'choix : tableau de 4 textes non vides attendu',
       );
     }
   }
   if (avecFigure) {
     const f = q.figure;
-    const ok = f !== null && typeof f === 'object' && ['matrice', 'suite'].includes(f.kind);
-    if (!ok) erreurs.push('figure : description de type « matrice » ou « suite » attendue');
+    const ok = f !== null && typeof f === 'object' && ['matrice', 'suite', 'patron'].includes(f.kind);
+    if (!ok) erreurs.push('figure : description de type « matrice », « suite » ou « patron » attendue');
   }
   if ('bonne_reponse' in q && q.bonne_reponse !== null && ![1, 2, 3, 4].includes(q.bonne_reponse)) {
     erreurs.push('bonne_reponse : 1, 2, 3, 4 ou null attendu');
